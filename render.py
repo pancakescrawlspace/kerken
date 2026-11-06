@@ -31,7 +31,6 @@ LAND = "#fbfbf8"
 BORDER = "#aab3c0"
 INK = "#1b2230"
 MUTED = "#5d6676"
-LEADER = "#6b7482"
 SERIF = "Georgia, 'Times New Roman', serif"
 SANS = "'Helvetica Neue', Helvetica, Arial, sans-serif"
 
@@ -45,11 +44,11 @@ TEXT = {
         "east": "EASTERN ORTHODOX",
         "orient": "ORIENTAL ORTHODOX",
         "key": ["Eastern Orthodox", "Oriental Orthodox", "Monastery or skete", "Community without its own church"],
-        "leader": "Line to the actual location where markers were moved apart",
         "notes": [
             "Locations from the churches' own parish lists, the Benelux church directory (orthodoxconnect.be)",
             "and Kerk op de Kaart; geocoded with the PDOK address register. Where no street address is",
-            "published the marker sits at the town centre.",
+            "published the marker sits at the town centre. Markers that are close together have been",
+            "shifted slightly so that all of them remain visible.",
         ],
         "towns": {},  # e.g. {"'s-Gravenhage": "The Hague"} to rename a town label
     },
@@ -61,11 +60,11 @@ TEXT = {
         "east": "OOSTERS-ORTHODOX",
         "orient": "ORIËNTAALS-ORTHODOX",
         "key": ["Oosters-orthodox", "Oriëntaals-orthodox", "Klooster of skite", "Gemeenschap zonder eigen kerk"],
-        "leader": "Lijn naar de werkelijke locatie, waar markeringen zijn verschoven",
         "notes": [
             "Locaties uit de parochielijsten van de kerken zelf, de Benelux-kerkengids (orthodoxconnect.be)",
             "en Kerk op de Kaart; gegeocodeerd met het adressenregister van PDOK. Waar geen straatadres",
-            "bekend is, staat de markering in het centrum van de plaats.",
+            "bekend is, staat de markering in het centrum van de plaats. Markeringen die dicht bij elkaar",
+            "liggen, zijn iets verschoven zodat ze allemaal zichtbaar blijven.",
         ],
         "towns": {},
     },
@@ -118,6 +117,9 @@ def iter_rings(features):
 
 def relax(points):
     """Nudge overlapping markers apart while keeping each close to its true spot.
+
+    The shifts are small (on average about one marker radius), so no lines are
+    drawn back to the true location; the footnote mentions the shift instead.
 
     points: list of (x, y) anchors. Returns new positions (same order).
     Deterministic, so the same data always gives the same image.
@@ -259,14 +261,6 @@ def render_svg(records, jurs, provinces, towns, updated, lang="en"):
     anchors = [proj(r["lon"], r["lat"]) for r in recs]
     pos = relax(anchors)
 
-    # Leader lines for markers moved off their true location
-    out.append(f'<g stroke="{LEADER}" stroke-width="{1.2 * S:.1f}" fill="{LEADER}">')
-    for (ax, ay), (px, py) in zip(anchors, pos):
-        if math.hypot(px - ax, py - ay) > R * 0.9:
-            out.append(f'<line x1="{ax:.1f}" y1="{ay:.1f}" x2="{px:.1f}" y2="{py:.1f}"/>'
-                       f'<circle cx="{ax:.1f}" cy="{ay:.1f}" r="{2.2 * S:.1f}" stroke="none"/>')
-    out.append("</g>")
-
     labels = place_labels(towns, proj, pos, T["towns"])
 
     out.append("<g>")
@@ -321,10 +315,6 @@ def render_svg(records, jurs, provinces, towns, updated, lang="en"):
         grid.append(marker(kx + 14, ky + 12, MUTED, shape == "diamond", kind, scale=1.3))
         grid.append(text(kx + 40, ky + 20, label, 20, INK))
     y += 2 * 44 + 6
-    lx = px + 14
-    grid.append(f'<line x1="{lx - 12}" y1="{y + 12}" x2="{lx + 16}" y2="{y + 12}" stroke="{LEADER}" stroke-width="1.6"/>'
-               f'<circle cx="{lx - 12}" cy="{y + 12}" r="3" fill="{LEADER}"/>')
-    grid.append(text(px + 40, y + 20, T["leader"], 20, INK))
 
     # Footnote
     notes = T["notes"]

@@ -11,7 +11,7 @@ A map of every Eastern Orthodox and Oriental Orthodox parish, monastery and comm
   At 300 dpi each prints at about 30 × 25 cm.
 - **Current data:** 111 entries in 14 jurisdictions: 57 Eastern Orthodox and 54 Oriental Orthodox, including 7 monasteries and 8 communities without their own church building.
 
-Where several churches are close together (Amsterdam, Den Haag, Twente, Maastricht), markers are nudged apart just enough to all stay visible. A thin line with a dot then points to the true location. Town names are placed automatically next to their town, on whichever side is free of markers.
+Where several churches are close together (Amsterdam, Den Haag, Twente, Maastricht), markers are nudged apart just enough to all stay visible. The shifts are small (a few hundred metres at most), and the footnote on the map says so. Town names are placed automatically next to their town, on whichever side is free of markers.
 
 ---
 
@@ -159,7 +159,7 @@ Compiled in November 2026.
 
 - **Exact addresses.** Most Eastern Orthodox entries and most Oriental Orthodox entries have an exact address, geocoded with the PDOK address register.
 - **Town only.** 20 entries are placed near the town centre because no address was published. Mostly these are Coptic parishes, Armenian communities, and a few Eritrean ones. They are the rows in `data/churches.csv` with an empty `street`.
-- **Shared buildings and clusters.** Markers that would overlap are pushed apart just enough to all be visible. Examples are parishes sharing a building, such as the Byzantine Chapel in Nijmegen (Greek and Russian), Bakkersstraat 57a in Den Haag (Bulgarian and Georgian) and Stationsstraat 13 in Zaandam (Serbian and Antiochian), and several town-only entries in one town. Where a marker had to move noticeably, a thin line points to its true location.
+- **Shared buildings and clusters.** Markers that would overlap are pushed apart just enough to all be visible. Examples are parishes sharing a building, such as the Byzantine Chapel in Nijmegen (Greek and Russian), Bakkersstraat 57a in Den Haag (Bulgarian and Georgian) and Stationsstraat 13 in Zaandam (Serbian and Antiochian), and several town-only entries in one town. The shifts average about one marker width, so no lines are drawn back to the true location; the footnote on the map mentions the shift instead.
 
 ### Known uncertainties
 
