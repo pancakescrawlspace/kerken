@@ -290,7 +290,6 @@ INSET_TEXT = {
     "meerderheid": ["Meerderheid van de bevolking"],
     "grootste": ["Grootste geloofsgemeenschap,", "maar niet de meerderheid"],
     "minderheid": ["Kleine minderheid"],
-    "note": ["De kleur staat voor de kerk;", "zie het label bij elk land."],
 }
 
 
@@ -302,7 +301,7 @@ def inset_legend():
     width = pad * 2 + sw + 12 * S + longest * fs * 0.54
     rows = [(key, INSET_TEXT[key]) for key in CATEGORIES]
     height = (pad + 30 * S + sum(max(sh, lh * len(lines)) + gap for _, lines in rows)
-              + lh * len(INSET_TEXT["note"]) + pad)
+              - gap + pad)
     swatches = {
         "meerderheid": f'fill="{MUTED}" stroke="{render_stroke(MUTED)}" stroke-width="{1.5 * S:.1f}"',
         "grootste": f'fill="url(#h-legend)" stroke="{render_stroke(MUTED)}" stroke-width="{1.5 * S:.1f}"',
@@ -320,8 +319,6 @@ def inset_legend():
         for i, line in enumerate(lines):
             out.append(text(bx + pad + sw + 12 * S, ty + lh * i, line, f"{fs:.0f}", INK))
         y += block + gap
-    for i, line in enumerate(INSET_TEXT["note"]):
-        out.append(text(bx + pad, y + 12 * S + lh * i, line, f"{15 * S:.0f}", MUTED))
     out.append("</g>")
     return "".join(out)
 
