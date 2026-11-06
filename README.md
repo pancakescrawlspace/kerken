@@ -218,7 +218,7 @@ The first version of the map had only 3 Eritrean churches, and the Hoogkerk chur
 
 ## Second map: the Oriental Orthodox home countries
 
-![De Oriëntaals-Orthodoxe kerken en hun thuislanden](oriental-orthodox-nl.png)
+![Oriëntaals-Orthodoxe kerken en hun thuislanden](oriental-orthodox-nl.png)
 
 A Dutch-language map of the six Oriental Orthodox churches and their home countries, built with `python3 build_oriental.py` (PNG and PDF; `--no-pdf` and `--svg DIR` work as for the main map).
 
@@ -244,7 +244,7 @@ The Syriac Orthodox Church also has many members outside Syria: in Iraq, Turkey 
 - `low` and `high` are the share in percent; for a single figure, make them equal.
 - `share_text` is the text printed on the map.
 - `category` is `meerderheid`, `grootste` or `minderheid`.
-- `label_lon` and `label_lat` place the label. When a label sits outside its country, a line is drawn to the country automatically. Set `leader` to `no` to leave that line out, as for Syria, whose label touches the country.
+- `label_lon` and `label_lat` place the label. When a label sits outside its country, a line is drawn to the country automatically. Set `leader` to `no` to leave that line out. All three labels outside their country (Syria, Eritrea, Armenia) use `no`, and are placed so that only their bottom line (the church name) touches the country.
 
 The map text (title, legend, footnote) is at the top of `build_oriental.py`.
 
