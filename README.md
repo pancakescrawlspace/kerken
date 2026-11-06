@@ -4,11 +4,14 @@ A map of every Eastern Orthodox and Oriental Orthodox parish, monastery and comm
 
 ![Orthodox Churches of the Netherlands](orthodox-churches-en.png)
 
-- **Output:** two versions of the same map, each a single 3600 × 3000 px image containing the map and the legend:
-  - English: [`orthodox-churches-en.png`](orthodox-churches-en.png)
-  - Dutch: [`orthodox-churches-nl.png`](orthodox-churches-nl.png)
+- **Output:** the same map in English and Dutch, each as one file containing the map and the legend:
 
-  At 300 dpi each prints at about 30 × 25 cm.
+  | | For screens (PNG, 3600 × 3000 px) | For print (vector PDF, 1200 × 1000 mm) |
+  |---|---|---|
+  | English | [`orthodox-churches-en.png`](orthodox-churches-en.png) | [`orthodox-churches-en.pdf`](orthodox-churches-en.pdf) |
+  | Dutch | [`orthodox-churches-nl.png`](orthodox-churches-nl.png) | [`orthodox-churches-nl.pdf`](orthodox-churches-nl.pdf) |
+
+  For printing, use the PDF; see [Printing](#printing).
 - **Current data:** 111 entries in 14 jurisdictions: 57 Eastern Orthodox and 54 Oriental Orthodox, including 7 monasteries and 8 communities without their own church building.
 
 Where several churches are close together (Amsterdam, Den Haag, Twente, Maastricht), markers are nudged apart just enough to all stay visible. The shifts are small (a few hundred metres at most), and the footnote on the map says so. Town names are placed automatically next to their town, on whichever side is free of markers.
@@ -18,22 +21,25 @@ Where several churches are close together (Amsterdam, Den Haag, Twente, Maastric
 ## Quick start
 
 ```sh
-python3 build.py              # validate data, geocode new addresses, draw both images
+python3 build.py              # validate data, geocode new addresses, draw both maps (PNG + PDF)
 open orthodox-churches-en.png  # the finished map in English
-open orthodox-churches-nl.png  # the finished map in Dutch
+open orthodox-churches-nl.pdf  # the Dutch poster PDF
 ```
 
 Requirements:
 - **Python 3.8+**, standard library only.
-- **`rsvg-convert`** from librsvg, which turns the drawing into a PNG. Install it with `brew install librsvg` (Homebrew), `sudo port install librsvg` (MacPorts) or `sudo apt install librsvg2-bin` (Debian/Ubuntu).
+- **`rsvg-convert`** from librsvg, which turns the drawing into PNG and PDF. Install it with `brew install librsvg` (Homebrew), `sudo port install librsvg` (MacPorts) or `sudo apt install librsvg2-bin` (Debian/Ubuntu).
 
 The fonts are Georgia (title) and Helvetica Neue (text); other systems fall back to Times and Arial.
 
 | Command | What it does |
 |---|---|
-| `python3 build.py` | Validates the data, geocodes new or changed addresses, writes `orthodox-churches-en.png` and `orthodox-churches-nl.png` |
+| `python3 build.py` | Validates the data, geocodes new or changed addresses, writes the PNG and PDF of both languages |
 | `python3 build.py --lang nl` | Builds only one language (`en` or `nl`) |
 | `python3 build.py --check` | Validates and geocodes, but writes no map |
+| `python3 build.py --bleed 5` | Adds 5 mm bleed around the PDF page (see [Printing](#printing)) |
+| `python3 build.py --poster-width 1500` | Makes the PDF page 1500 mm wide (height follows: 1250 mm) |
+| `python3 build.py --no-pdf` | Writes only the PNGs |
 | `python3 build.py --offline` | Uses only cached coordinates; fails if an address is new |
 | `python3 build.py --refresh` | Geocodes every address again (for example after the address register changes) |
 | `python3 build.py --svg DIR` | Also saves each drawing as an SVG (a vector version of the same image) in that folder |
@@ -53,8 +59,10 @@ data/churches.csv         the churches: edit this file to add or change entries
 data/jurisdictions.csv    jurisdictions with their legend colour, names and descriptions in English and Dutch
 data/geocode-cache.json   cached coordinates (generated; keep it in the repo)
 data/provinces.geojson    province outlines for the base map (CBS 2023 via cartomap)
-orthodox-churches-en.png  OUTPUT: map and legend in English (generated; do not edit by hand)
-orthodox-churches-nl.png  OUTPUT: map and legend in Dutch (generated; do not edit by hand)
+orthodox-churches-en.png  OUTPUT: map and legend in English, for screens (generated; do not edit)
+orthodox-churches-en.pdf  OUTPUT: the same as a vector poster PDF, 1200 x 1000 mm (generated)
+orthodox-churches-nl.png  OUTPUT: map and legend in Dutch, for screens (generated; do not edit)
+orthodox-churches-nl.pdf  OUTPUT: the same as a vector poster PDF, 1200 x 1000 mm (generated)
 ```
 
 ---
@@ -105,6 +113,21 @@ Delete the row.
 ### Add or change a jurisdiction
 
 Edit `data/jurisdictions.csv`. Each row has a short `key` (used in `churches.csv`), a `family` (`Eastern` or `Oriental`, which decides circle or diamond markers), a `color` (`#rrggbb`), and a name and subtitle in each language (`name_en`, `subtitle_en`, `name_nl`, `subtitle_nl`). The names and subtitles are printed in the legend of the matching image. The order of rows is the order in the legend. The legend grows with the number of jurisdictions; with more than about 16, enlarge `H` in `render.py`.
+
+### Printing
+
+Use the **PDF** for printing. Everything on the map (coastline, markers, text) is vector, so the PDF stays sharp at any size and is only about 150 KB. The page is 1200 × 1000 mm (landscape), and the fonts are embedded.
+
+At that size the smallest text (legend descriptions, footnote) is about 9 mm high and the markers about 8.5 mm across: readable from 2 to 3 metres.
+
+**For a different size**, keep the 6 : 5 proportions and use `--poster-width`. For example, `--poster-width 600` gives an A1-like 600 × 500 mm.
+
+**If you need a bitmap** instead, the PNG at 3600 × 3000 px is only about 76 dpi at poster size, which is fine for screens but blurry in print. At 1200 × 1000 mm you need about 7100 × 5900 px (150 dpi) for viewing from a metre or more, or 14200 × 11800 px (300 dpi) for close viewing. Set `S` in `render.py` to 3 or 6 respectively; markers, text and spacing scale along, so the picture stays the same.
+
+**Points to raise with the print shop:**
+- **Bleed.** For edge-to-edge printing most shops want 3–5 mm extra background on every side. `python3 build.py --bleed 5` adds this: the page grows to 1210 × 1010 mm and the grey background runs into the extra margin, while the map stays in place on the trimmed page. Without bleed, ask for printing with a white border instead.
+- **Colour.** The colours are defined for screens (RGB). The printer converts them to CMYK, which can make the brightest colours (sky blue, lime, pink) a little duller. Ask for a proof if exact colours matter.
+- **Fonts.** The fonts are embedded. A few characters are embedded as Type 3 fonts, which nearly all print software accepts. If the shop's software complains anyway, tell them that's the cause.
 
 ### Change the look of the image
 

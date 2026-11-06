@@ -3,6 +3,9 @@
 
 Usage:
     python3 build.py              # validate, geocode new addresses, write the English and Dutch maps
+                                  # as PNG (for screens) and as poster PDF (1200 x 1000 mm, for print)
+    python3 build.py --bleed 5    # add 5 mm bleed around the PDF page for edge-to-edge printing
+    python3 build.py --no-pdf     # PNG only
     python3 build.py --lang nl    # build only one language (en or nl)
     python3 build.py --check      # validate and geocode only, write no map
     python3 build.py --svg PATH   # also save the intermediate SVG (vector version of the same image)
@@ -36,7 +39,7 @@ CHURCHES_CSV = DATA / "churches.csv"
 JURISDICTIONS_CSV = DATA / "jurisdictions.csv"
 PROVINCES = DATA / "provinces.geojson"
 CACHE = DATA / "geocode-cache.json"
-# One image per language: map and legend together.
+# One map per language: map and legend together, as PNG (screen) and PDF (print).
 OUTPUTS = {"en": ROOT / "orthodox-churches-en.png", "nl": ROOT / "orthodox-churches-nl.png"}
 
 PDOK = "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?"
@@ -205,7 +208,14 @@ def main():
     ap.add_argument("--lang", choices=sorted(OUTPUTS), action="append",
                     help="build only this language (can be repeated); default: all")
     ap.add_argument("--svg", metavar="DIR", help="also save the SVG version of each image in this folder")
+    ap.add_argument("--no-pdf", action="store_true", help="skip the poster PDFs")
+    ap.add_argument("--poster-width", type=float, default=render.POSTER_WIDTH_MM, metavar="MM",
+                    help=f"PDF page width in mm (default {render.POSTER_WIDTH_MM}); the height follows the proportions")
+    ap.add_argument("--bleed", type=float, default=0.0, metavar="MM",
+                    help="extra background on every side of the PDF page for edge-to-edge printing (default 0)")
     args = ap.parse_args()
+    if args.poster_width <= 0 or args.bleed < 0:
+        raise BuildError("--poster-width must be positive and --bleed cannot be negative")
 
     jurs, errors = load_jurisdictions()
     rows = read_csv(CHURCHES_CSV)
@@ -265,9 +275,15 @@ def main():
             print(f"Wrote {svg_path}")
         try:
             render.svg_to_png(svg, out)
+            print(f"Wrote {out.relative_to(ROOT)} ({out.stat().st_size // 1024} KB, {render.W}x{render.H} px)")
+            if not args.no_pdf:
+                pdf = out.with_suffix(".pdf")
+                render.svg_to_pdf(svg, pdf, args.poster_width, args.bleed)
+                h = args.poster_width * render.H / render.W
+                size = f"{args.poster_width:g} x {h:g} mm" + (f" + {args.bleed:g} mm bleed" if args.bleed else "")
+                print(f"Wrote {pdf.relative_to(ROOT)} ({pdf.stat().st_size // 1024} KB, {size})")
         except (RuntimeError, subprocess.CalledProcessError) as e:
-            raise BuildError(f"could not write the PNG: {e}")
-        print(f"Wrote {out.relative_to(ROOT)} ({out.stat().st_size // 1024} KB, {render.W}x{render.H} px)")
+            raise BuildError(f"could not write the map: {e}")
     return 0
 
 

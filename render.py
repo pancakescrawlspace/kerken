@@ -15,14 +15,16 @@ from xml.sax.saxutils import escape
 # Title, legend and footnote are laid out on a 2400 x 2000 grid and scaled up by S.
 # The map itself is drawn at full resolution, so markers can stay small relative
 # to the map and dense areas (Amsterdam, Twente, Den Haag) keep room to breathe.
-# To get an even sharper image, raise S; to give clusters more room, lower R.
+# To get a sharper PNG, raise S: everything scales along, so the picture stays
+# the same, just with more pixels. To give clusters more room, lower R.
 S = 1.5                           # output scale: 2400 x 2000 grid -> 3600 x 3000 px
 W, H = int(2400 * S), int(2000 * S)
 MAP_X, MAP_Y = 40, 190            # map frame on the grid
 MAP_W, MAP_H = 1480, 1770
 PANEL_X = MAP_X + MAP_W + 50      # legend panel left edge on the grid
-R = 11                            # marker radius in output pixels
-GAP = 3                           # minimum gap between markers in output pixels
+R = 8.5 * S                       # marker radius in output pixels (12.75 px at S = 1.5)
+POSTER_WIDTH_MM = 1200            # PDF page width; the height follows the image proportions (1000 mm)
+GAP = 2 * S                       # minimum gap between markers in output pixels
 
 # ---------------------------------------------------------------- colours / type
 BG = "#f3f4f6"
@@ -157,8 +159,11 @@ def relax(points):
     return pos
 
 
+MARKER_UNIT = 9.5                 # radius of a marker drawn at scale=1 (legend symbols use this)
+
+
 def marker(x, y, color, oriental, kind, scale=1.0):
-    r = R * scale
+    r = MARKER_UNIT * scale
     parts = []
     hollow = kind == "community"
     fill = LAND if hollow else color
@@ -172,6 +177,14 @@ def marker(x, y, color, oriental, kind, scale=1.0):
     if kind == "monastery":
         parts.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{3.2 * scale:.1f}" fill="#ffffff"/>')
     return "".join(parts)
+
+
+def _canvas(bleed):
+    """Opening <svg> tag plus page background, extended by `bleed` px on every side."""
+    w, h = W + 2 * bleed, H + 2 * bleed
+    return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{w:g}" height="{h:g}" '
+            f'viewBox="{-bleed:g} {-bleed:g} {w:g} {h:g}">\n'
+            f'<rect x="{-bleed:g}" y="{-bleed:g}" width="{w:g}" height="{h:g}" fill="{BG}"/>')
 
 
 def text(x, y, s, size, color=INK, family=SANS, weight=400, anchor="start", extra=""):
@@ -231,8 +244,7 @@ def render_svg(records, jurs, provinces, towns, updated, lang="en"):
     proj = Projection(feats, MAP_X * S, MAP_Y * S, MAP_W * S, MAP_H * S)
     J = {j["k"]: j for j in jurs}
     order = {j["k"]: i for i, j in enumerate(jurs)}
-    out = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}">',
-           f'<rect width="{W}" height="{H}" fill="{BG}"/>']
+    out = [_canvas(0)]
 
     grid = [f'<g transform="scale({S})">']   # title, legend and footnote on the 2400 x 2000 grid
     # Title block
@@ -266,7 +278,7 @@ def render_svg(records, jurs, provinces, towns, updated, lang="en"):
     out.append("<g>")
     for r, (x, y) in zip(recs, pos):
         j = J[r["j"]]
-        out.append(marker(x, y, j["c"], j["fam"] == "O", r["kind"], scale=R / 9.5))
+        out.append(marker(x, y, j["c"], j["fam"] == "O", r["kind"], scale=R / MARKER_UNIT))
     out.append("</g>")
     out.append("<g>" + "".join(labels) + "</g>")
 
@@ -328,12 +340,35 @@ def render_svg(records, jurs, provinces, towns, updated, lang="en"):
     return "\n".join(out)
 
 
-def svg_to_png(svg, png_path):
+def _rsvg():
     exe = shutil.which("rsvg-convert")
     if not exe:
         raise RuntimeError("rsvg-convert not found. Install librsvg: `brew install librsvg` (macOS), "
                            "`port install librsvg` (MacPorts) or `apt install librsvg2-bin` (Debian/Ubuntu).")
+    return exe
+
+
+def _convert(svg, args):
     with tempfile.TemporaryDirectory() as tmp:
         src = Path(tmp) / "map.svg"
         src.write_text(svg, encoding="utf-8")
-        subprocess.run([exe, "--format=png", f"--width={W}", "--output", str(png_path), str(src)], check=True)
+        subprocess.run([_rsvg(), *args, str(src)], check=True)
+
+
+def svg_to_png(svg, png_path):
+    _convert(svg, ["--format=png", f"--width={W}", "--output", str(png_path)])
+
+
+def svg_to_pdf(svg, pdf_path, width_mm=POSTER_WIDTH_MM, bleed_mm=0.0):
+    """Write a vector PDF whose trimmed page is width_mm wide.
+
+    With bleed_mm > 0 the page grows by that much on every side and the
+    background colour runs into it, as print shops ask for edge-to-edge
+    printing. Map and text stay exactly where they are on the trimmed page.
+    """
+    height_mm = width_mm * H / W
+    bleed_px = bleed_mm * W / width_mm
+    if bleed_px:
+        svg = svg.replace(_canvas(0), _canvas(bleed_px), 1)
+    _convert(svg, ["--format=pdf", f"--width={width_mm + 2 * bleed_mm:g}mm",
+                   f"--height={height_mm + 2 * bleed_mm:g}mm", "--output", str(pdf_path)])
