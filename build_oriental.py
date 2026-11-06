@@ -46,7 +46,7 @@ POSTER_WIDTH_MM = 1200
 LAND = "#f1f0ec"
 CATEGORIES = {
     "meerderheid": "Meerderheid van de bevolking",
-    "grootste": "Grootste geloofsgemeenschap, maar geen meerderheid",
+    "grootste": "Grootste geloofsgemeenschap, maar niet de meerderheid",
     "minderheid": "Kleine minderheid",
 }
 TEXT = {
@@ -55,7 +55,7 @@ TEXT = {
                 "of een kleine minderheid? · {updated}",
     "chart": "Aandeel van de bevolking dat tot de kerk behoort",
     "majority_line": "meerderheid",
-    "legend": "Vulling van het land",
+    "legend": "Inkleuring van het land",
     "legend_note": "De kleur staat voor de kerk; zie het label bij elk land.",
     "notes_title": "Bronnen en toelichting",
     "notes": [
@@ -288,7 +288,7 @@ INSET_LEGEND_AT = (56.5, 11.5)           # lon, lat of the top-left corner of th
 # The inset legend is narrow, so its longer texts are split over two lines.
 INSET_TEXT = {
     "meerderheid": ["Meerderheid van de bevolking"],
-    "grootste": ["Grootste geloofsgemeenschap,", "maar geen meerderheid"],
+    "grootste": ["Grootste geloofsgemeenschap,", "maar niet de meerderheid"],
     "minderheid": ["Kleine minderheid"],
     "note": ["De kleur staat voor de kerk;", "zie het label bij elk land."],
 }
