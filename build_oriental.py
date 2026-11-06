@@ -2,7 +2,8 @@
 """Build the map of the six Oriental Orthodox churches and their home countries (in Dutch).
 
 Usage:
-    python3 build_oriental.py            # writes oriental-orthodox-nl.png and oriental-orthodox-nl.pdf
+    python3 build_oriental.py            # writes oriental-orthodox-nl.png and oriental-orthodox-nl.pdf, and
+                                         # oriental-orthodox-nl-kaart.png (only the map, for screens)
     python3 build_oriental.py --no-pdf   # PNG only
     python3 build_oriental.py --svg DIR  # also save the SVG
 
@@ -31,6 +32,8 @@ ROOT = Path(__file__).resolve().parent
 DATA_CSV = ROOT / "data" / "oriental-orthodox.csv"
 COUNTRIES = ROOT / "data" / "countries-region.geojson"
 OUT = ROOT / "oriental-orthodox-nl.png"
+OUT_MAP = ROOT / "oriental-orthodox-nl-kaart.png"   # only the map, for screens
+MAP_PNG_WIDTH = 3840                                  # px; 4K width, sharp on large and high-DPI screens
 
 # Layout on a 2400 x 1700 grid, scaled by S (same approach as render.py).
 S = 1.5
@@ -281,6 +284,18 @@ def render_svg(rows, countries, updated):
     return "\n".join(out)
 
 
+def map_only(svg):
+    """The same drawing, cropped to the map frame (labels included, title/chart/legend left out)."""
+    x, y, w, h = (v * S for v in MAP)
+    corner = f'rx="{14 * S}"'
+    if svg.count(corner) != 2:
+        raise BuildError("could not find the map frame corners to square them off")
+    svg = svg.replace(corner, 'rx="0"')
+    root = f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}">'
+    return svg.replace(root, f'<svg xmlns="http://www.w3.org/2000/svg" width="{w:g}" height="{h:g}" '
+                             f'viewBox="{x:g} {y:g} {w:g} {h:g}">', 1)
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--no-pdf", action="store_true", help="skip the PDF")
@@ -317,6 +332,9 @@ def main():
     try:
         render._convert(svg, ["--format=png", f"--width={W}", "--output", str(OUT)])
         print(f"Wrote {OUT.name} ({OUT.stat().st_size // 1024} KB, {W}x{H} px)")
+        render._convert(map_only(svg), ["--format=png", f"--width={MAP_PNG_WIDTH}", "--output", str(OUT_MAP)])
+        mh = math.ceil(MAP_PNG_WIDTH * MAP[3] / MAP[2])
+        print(f"Wrote {OUT_MAP.name} ({OUT_MAP.stat().st_size // 1024} KB, {MAP_PNG_WIDTH}x{mh} px)")
         if not args.no_pdf:
             pdf = OUT.with_suffix(".pdf")
             h_mm = POSTER_WIDTH_MM * H / W

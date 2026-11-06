@@ -69,6 +69,7 @@ data/oriental-orthodox.csv       one row per country: church, colour, share, cat
 data/countries-region.geojson    country outlines (Natural Earth 1:50m), clipped to the region
 oriental-orthodox-nl.png  OUTPUT: home-countries map, 3600 x 2550 px (generated)
 oriental-orthodox-nl.pdf  OUTPUT: the same as a vector PDF, 1200 x 850 mm (generated)
+oriental-orthodox-nl-kaart.png  OUTPUT: only the map part, 3840 x 1656 px, for screens (generated)
 ```
 
 ---
@@ -220,7 +221,11 @@ The first version of the map had only 3 Eritrean churches, and the Hoogkerk chur
 
 ![De Oriëntaals-Orthodoxe kerken en hun thuislanden](oriental-orthodox-nl.png)
 
-A Dutch-language map of the six Oriental Orthodox churches and their home countries, built with `python3 build_oriental.py` (PNG and PDF; `--no-pdf` and `--svg DIR` work as for the main map).
+A Dutch-language map of the six Oriental Orthodox churches and their home countries, built with `python3 build_oriental.py`. It writes three files; `--no-pdf` and `--svg DIR` work as for the main map.
+
+- `oriental-orthodox-nl.png`: the full map with title, chart and legend.
+- `oriental-orthodox-nl.pdf`: the same as a vector PDF for print.
+- `oriental-orthodox-nl-kaart.png`: only the map part, labels included, without title, chart and legend. It is 3840 px wide (4K) and meant for screens, slides and websites. It is drawn from the same vector drawing as the PDF, not cropped from a bitmap. To change its width, set `MAP_PNG_WIDTH` in `build_oriental.py`.
 
 Each country is coloured by its church. The **fill style** shows how large the church is in that country:
 - **Solid:** the church is followed by a majority of the population.
