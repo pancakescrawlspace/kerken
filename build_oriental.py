@@ -47,7 +47,7 @@ CATEGORIES = {
     "minderheid": "Kleine minderheid",
 }
 TEXT = {
-    "title": "Oriëntaals-Orthodoxe kerken en hun thuislanden",
+    "title": "De Oriëntaals-Orthodoxe kerken en hun thuislanden",
     "subtitle": "Welk deel van de bevolking hoort bij de kerk: een meerderheid, de grootste geloofsgemeenschap "
                 "of een kleine minderheid? · {updated}",
     "chart": "Aandeel van de bevolking dat tot de kerk behoort",

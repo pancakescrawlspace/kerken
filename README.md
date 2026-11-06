@@ -218,7 +218,7 @@ The first version of the map had only 3 Eritrean churches, and the Hoogkerk chur
 
 ## Second map: the Oriental Orthodox home countries
 
-![Oriëntaals-Orthodoxe kerken en hun thuislanden](oriental-orthodox-nl.png)
+![De Oriëntaals-Orthodoxe kerken en hun thuislanden](oriental-orthodox-nl.png)
 
 A Dutch-language map of the six Oriental Orthodox churches and their home countries, built with `python3 build_oriental.py` (PNG and PDF; `--no-pdf` and `--svg DIR` work as for the main map).
 
