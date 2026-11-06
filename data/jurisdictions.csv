@@ -1,15 +1,15 @@
-key,family,color,name,subtitle
-ep,Eastern,#7a45c4,Ecumenical Patriarchate,"Archdiocese of Belgium, Exarchate of the Netherlands"
-mp,Eastern,#1f57d6,Russian Orthodox Church,Moscow Patriarchate · Diocese of The Hague
-aer,Eastern,#5ea7f5,Archdiocese of Russian Churches in W. Europe,Moscow Patriarchate · Russian tradition
-rocor,Eastern,#13306e,Russian Church Outside Russia (ROCOR),"Self-governing, within the Moscow Patriarchate"
-srb,Eastern,#d7263d,Serbian Orthodox Church,Diocese of Western Europe
-rou,Eastern,#e6ad00,Romanian Orthodox Church,Metropolis of Western & Southern Europe
-bul,Eastern,#1f9d55,Bulgarian Orthodox Church,Diocese of Western & Central Europe
-geo,Eastern,#e0528a,Georgian Orthodox Church,Diocese of Belgium & the Netherlands
-ant,Eastern,#8a5a2b,Antiochian Orthodox Church,Archdiocese of Germany & Central Europe
-copt,Oriental,#0f8c82,Coptic Orthodox Church,Diocese of the Netherlands
-syr,Oriental,#7d8f14,Syriac Orthodox Church,Archdiocese of the Netherlands
-arm,Oriental,#ef7a1a,Armenian Apostolic Church,Pontifical Legation of Western Europe
-eth,Oriental,#9cc22b,Ethiopian Orthodox Tewahedo,Archdiocese of Europe
-eri,Oriental,#26b2e6,Eritrean Orthodox Tewahedo,Diocese of Europe
+key,family,color,name_en,subtitle_en,name_nl,subtitle_nl
+ep,Eastern,#7a45c4,Ecumenical Patriarchate,"Archdiocese of Belgium, Exarchate of the Netherlands",Oecumenisch Patriarchaat,"Aartsbisdom van België, Exarchaat van Nederland"
+mp,Eastern,#1f57d6,Russian Orthodox Church,Moscow Patriarchate · Diocese of The Hague,Russisch-Orthodoxe Kerk,Patriarchaat van Moskou · Bisdom Den Haag
+aer,Eastern,#5ea7f5,Archdiocese of Russian Churches in W. Europe,Moscow Patriarchate · Russian tradition,Aartsbisdom Russische Kerken in West-Europa,Patriarchaat van Moskou · Russische traditie
+rocor,Eastern,#13306e,Russian Church Outside Russia (ROCOR),"Self-governing, within the Moscow Patriarchate",Russisch-Orthodoxe Kerk in het Buitenland,"Zelfbesturend, binnen het Patriarchaat van Moskou"
+srb,Eastern,#d7263d,Serbian Orthodox Church,Diocese of Western Europe,Servisch-Orthodoxe Kerk,Bisdom van West-Europa
+rou,Eastern,#e6ad00,Romanian Orthodox Church,Metropolis of Western & Southern Europe,Roemeens-Orthodoxe Kerk,Metropolie van West- en Zuid-Europa
+bul,Eastern,#1f9d55,Bulgarian Orthodox Church,Diocese of Western & Central Europe,Bulgaars-Orthodoxe Kerk,Bisdom van West- en Centraal-Europa
+geo,Eastern,#e0528a,Georgian Orthodox Church,Diocese of Belgium & the Netherlands,Georgisch-Orthodoxe Kerk,Bisdom van België en Nederland
+ant,Eastern,#8a5a2b,Antiochian Orthodox Church,Archdiocese of Germany & Central Europe,Antiocheens-Orthodoxe Kerk,Aartsbisdom van Duitsland en Centraal-Europa
+copt,Oriental,#0f8c82,Coptic Orthodox Church,Diocese of the Netherlands,Koptisch-Orthodoxe Kerk,Bisdom Nederland
+syr,Oriental,#7d8f14,Syriac Orthodox Church,Archdiocese of the Netherlands,Syrisch-Orthodoxe Kerk,Aartsbisdom Nederland
+arm,Oriental,#ef7a1a,Armenian Apostolic Church,Pontifical Legation of Western Europe,Armeens-Apostolische Kerk,Patriarchale delegatie voor West-Europa
+eth,Oriental,#9cc22b,Ethiopian Orthodox Tewahedo,Archdiocese of Europe,Ethiopisch-Orthodoxe Tewahedo Kerk,Aartsbisdom van Europa
+eri,Oriental,#26b2e6,Eritrean Orthodox Tewahedo,Diocese of Europe,Eritrees-Orthodoxe Tewahedo Kerk,Bisdom van Europa

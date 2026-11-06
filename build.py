@@ -2,7 +2,8 @@
 """Build the Orthodox churches map from the CSV data in data/.
 
 Usage:
-    python3 build.py              # validate, geocode new addresses, write orthodox-churches-nl.png
+    python3 build.py              # validate, geocode new addresses, write the English and Dutch maps
+    python3 build.py --lang nl    # build only one language (en or nl)
     python3 build.py --check      # validate and geocode only, write no map
     python3 build.py --svg PATH   # also save the intermediate SVG (vector version of the same image)
     python3 build.py --offline    # never call the geocoder; fail if an address is not cached yet
@@ -35,13 +36,20 @@ CHURCHES_CSV = DATA / "churches.csv"
 JURISDICTIONS_CSV = DATA / "jurisdictions.csv"
 PROVINCES = DATA / "provinces.geojson"
 CACHE = DATA / "geocode-cache.json"
-OUT = ROOT / "orthodox-churches-nl.png"    # the map and legend as one image
+# One image per language: map and legend together.
+OUTPUTS = {"en": ROOT / "orthodox-churches-en.png", "nl": ROOT / "orthodox-churches-nl.png"}
 
 PDOK = "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?"
 KINDS = {"parish", "monastery", "community"}
 COLUMNS = ["jurisdiction", "name", "kind", "building", "street", "postcode", "place", "note", "lat", "lon", "source"]
 # Town names as written in the CSV -> official name in the address register.
 PLACE_ALIASES = {"Den Haag": "'s-Gravenhage", "The Hague": "'s-Gravenhage"}
+MONTHS = {  # written out here so the result doesn't depend on the computer's language settings
+    "en": ["January", "February", "March", "April", "May", "June", "July",
+           "August", "September", "October", "November", "December"],
+    "nl": ["januari", "februari", "maart", "april", "mei", "juni", "juli",
+           "augustus", "september", "oktober", "november", "december"],
+}
 POSTCODE = re.compile(r"^\d{4} ?[A-Z]{2}$")
 NL_BOUNDS = (50.7, 53.7, 3.3, 7.3)  # lat min/max, lon min/max
 
@@ -63,7 +71,13 @@ def load_jurisdictions():
             errors.append(f"jurisdictions.csv line {i}: family must be Eastern or Oriental, got {r['family']!r}")
         if not re.fullmatch(r"#[0-9a-fA-F]{6}", r["color"]):
             errors.append(f"jurisdictions.csv line {i}: color must look like #1f57d6, got {r['color']!r}")
-        out.append({"k": r["key"], "fam": r["family"][0], "c": r["color"], "n": r["name"], "s": r["subtitle"]})
+        for lang in OUTPUTS:
+            for col in (f"name_{lang}", f"subtitle_{lang}"):
+                if not (r.get(col) or "").strip():
+                    errors.append(f"jurisdictions.csv line {i}: {col} is empty")
+        out.append({"k": r["key"], "fam": r["family"][0], "c": r["color"],
+                    "n": {lang: r.get(f"name_{lang}", "") for lang in OUTPUTS},
+                    "s": {lang: r.get(f"subtitle_{lang}", "") for lang in OUTPUTS}})
     keys = [j["k"] for j in out]
     for k, n in Counter(keys).items():
         if n > 1:
@@ -188,7 +202,9 @@ def main():
     ap.add_argument("--check", action="store_true", help="validate and geocode only; do not write the map")
     ap.add_argument("--offline", action="store_true", help="use only cached coordinates")
     ap.add_argument("--refresh", action="store_true", help="geocode every address again")
-    ap.add_argument("--svg", metavar="PATH", help="also save the SVG version of the image")
+    ap.add_argument("--lang", choices=sorted(OUTPUTS), action="append",
+                    help="build only this language (can be repeated); default: all")
+    ap.add_argument("--svg", metavar="DIR", help="also save the SVG version of each image in this folder")
     args = ap.parse_args()
 
     jurs, errors = load_jurisdictions()
@@ -235,17 +251,23 @@ def main():
     if calls:
         CACHE.write_text(json.dumps(dict(sorted(cache.items())), ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
 
-    updated = dt.datetime.fromtimestamp(CHURCHES_CSV.stat().st_mtime).strftime("%B %Y")
+    when = dt.datetime.fromtimestamp(CHURCHES_CSV.stat().st_mtime)
     provinces = json.loads(PROVINCES.read_text(encoding="utf-8"))
-    svg = render.render_svg(records, jurs, provinces, towns, updated)
-    if args.svg:
-        Path(args.svg).write_text(svg, encoding="utf-8")
-        print(f"Wrote {args.svg}")
-    try:
-        render.svg_to_png(svg, OUT)
-    except (RuntimeError, subprocess.CalledProcessError) as e:
-        raise BuildError(f"could not write the PNG: {e}")
-    print(f"Wrote {OUT.relative_to(ROOT)} ({OUT.stat().st_size // 1024} KB, {render.W}x{render.H} px)")
+    for lang in args.lang or list(OUTPUTS):
+        out = OUTPUTS[lang]
+        updated = f"{MONTHS[lang][when.month - 1]} {when.year}"
+        jurs_lang = [dict(j, n=j["n"][lang], s=j["s"][lang]) for j in jurs]
+        svg = render.render_svg(records, jurs_lang, provinces, towns, updated, lang)
+        if args.svg:
+            svg_path = Path(args.svg) / out.with_suffix(".svg").name
+            svg_path.parent.mkdir(parents=True, exist_ok=True)
+            svg_path.write_text(svg, encoding="utf-8")
+            print(f"Wrote {svg_path}")
+        try:
+            render.svg_to_png(svg, out)
+        except (RuntimeError, subprocess.CalledProcessError) as e:
+            raise BuildError(f"could not write the PNG: {e}")
+        print(f"Wrote {out.relative_to(ROOT)} ({out.stat().st_size // 1024} KB, {render.W}x{render.H} px)")
     return 0
 
 

@@ -35,6 +35,42 @@ LEADER = "#6b7482"
 SERIF = "Georgia, 'Times New Roman', serif"
 SANS = "'Helvetica Neue', Helvetica, Arial, sans-serif"
 
+# All text on the image, per language. Jurisdiction names come from data/jurisdictions.csv.
+TEXT = {
+    "en": {
+        "title": "Orthodox Churches of the Netherlands",
+        "subtitle": "{total} parishes, monasteries and communities in {jurs} jurisdictions: "
+                    "{east} Eastern Orthodox and {orient} Oriental Orthodox · {updated}",
+        "legend": "Jurisdictions",
+        "east": "EASTERN ORTHODOX",
+        "orient": "ORIENTAL ORTHODOX",
+        "key": ["Eastern Orthodox", "Oriental Orthodox", "Monastery or skete", "Community without its own church"],
+        "leader": "Line to the actual location where markers were moved apart",
+        "notes": [
+            "Locations from the churches' own parish lists, the Benelux church directory (orthodoxconnect.be)",
+            "and Kerk op de Kaart; geocoded with the PDOK address register. Where no street address is",
+            "published the marker sits at the town centre.",
+        ],
+        "towns": {},  # e.g. {"'s-Gravenhage": "The Hague"} to rename a town label
+    },
+    "nl": {
+        "title": "Orthodoxe kerken in Nederland",
+        "subtitle": "{total} parochies, kloosters en geloofsgemeenschappen in {jurs} jurisdicties: "
+                    "{east} oosters-orthodox en {orient} oriëntaals-orthodox · {updated}",
+        "legend": "Jurisdicties",
+        "east": "OOSTERS-ORTHODOX",
+        "orient": "ORIËNTAALS-ORTHODOX",
+        "key": ["Oosters-orthodox", "Oriëntaals-orthodox", "Klooster of skite", "Gemeenschap zonder eigen kerk"],
+        "leader": "Lijn naar de werkelijke locatie, waar markeringen zijn verschoven",
+        "notes": [
+            "Locaties uit de parochielijsten van de kerken zelf, de Benelux-kerkengids (orthodoxconnect.be)",
+            "en Kerk op de Kaart; gegeocodeerd met het adressenregister van PDOK. Waar geen straatadres",
+            "bekend is, staat de markering in het centrum van de plaats.",
+        ],
+        "towns": {},
+    },
+}
+
 # Town labels for orientation: (name as in the address register, label, unused).
 # The side of each label is chosen automatically to avoid markers.
 TOWN_LABELS = [
@@ -144,7 +180,7 @@ def text(x, y, s, size, color=INK, family=SANS, weight=400, anchor="start", extr
 LABEL_SIZE = 21 * S
 
 
-def place_labels(towns, proj, markers):
+def place_labels(towns, proj, markers, names=None):
     """Put each town name on the side of the town with the fewest markers and labels in the way."""
     size = LABEL_SIZE
     d = R + 6 * S
@@ -160,6 +196,7 @@ def place_labels(towns, proj, markers):
     for reg, label, _ in TOWN_LABELS:
         if reg not in towns:
             continue
+        label = (names or {}).get(reg, label)
         tx, ty = proj(towns[reg][1], towns[reg][0])
         w = len(label) * size * 0.56
         best = None
@@ -185,8 +222,9 @@ def place_labels(towns, proj, markers):
     return out
 
 
-def render_svg(records, jurs, provinces, towns, updated):
+def render_svg(records, jurs, provinces, towns, updated, lang="en"):
     """records: church dicts with lat/lon; jurs: legend rows; towns: {register name: (lat, lon)}."""
+    T = TEXT[lang]
     feats = provinces["features"]
     proj = Projection(feats, MAP_X * S, MAP_Y * S, MAP_W * S, MAP_H * S)
     J = {j["k"]: j for j in jurs}
@@ -198,9 +236,9 @@ def render_svg(records, jurs, provinces, towns, updated):
     # Title block
     n_e = sum(1 for r in records if J[r["j"]]["fam"] == "E")
     n_o = len(records) - n_e
-    grid.append(text(MAP_X, 92, "Orthodox Churches of the Netherlands", 60, family=SERIF, weight=600))
-    grid.append(text(MAP_X, 142, f"{len(records)} parishes, monasteries and communities in {len(jurs)} jurisdictions: "
-                                f"{n_e} Eastern Orthodox and {n_o} Oriental Orthodox · {updated}", 26, MUTED))
+    grid.append(text(MAP_X, 92, T["title"], 60, family=SERIF, weight=600))
+    grid.append(text(MAP_X, 142, T["subtitle"].format(total=len(records), jurs=len(jurs), east=n_e,
+                                                     orient=n_o, updated=updated), 26, MUTED))
 
     # Map frame: sea, provinces
     out.append(f'<rect x="{MAP_X * S}" y="{MAP_Y * S}" width="{MAP_W * S}" height="{MAP_H * S}" rx="{14 * S}" fill="{SEA}"/>')
@@ -229,7 +267,7 @@ def render_svg(records, jurs, provinces, towns, updated):
                        f'<circle cx="{ax:.1f}" cy="{ay:.1f}" r="{2.2 * S:.1f}" stroke="none"/>')
     out.append("</g>")
 
-    labels = place_labels(towns, proj, pos)
+    labels = place_labels(towns, proj, pos, T["towns"])
 
     out.append("<g>")
     for r, (x, y) in zip(recs, pos):
@@ -251,12 +289,12 @@ def render_svg(records, jurs, provinces, towns, updated):
     # Legend panel
     px, y = PANEL_X, MAP_Y + 6
     pw = 2400 - PANEL_X - 40   # panel width on the grid
-    grid.append(text(px, y + 34, "Jurisdictions", 38, family=SERIF, weight=600))
+    grid.append(text(px, y + 34, T["legend"], 38, family=SERIF, weight=600))
     y += 70
     counts = {}
     for r in records:
         counts[r["j"]] = counts.get(r["j"], 0) + 1
-    for fam, title in (("E", "EASTERN ORTHODOX"), ("O", "ORIENTAL ORTHODOX")):
+    for fam, title in (("E", T["east"]), ("O", T["orient"])):
         fam_n = sum(counts.get(j["k"], 0) for j in jurs if j["fam"] == fam)
         y += 12
         grid.append(text(px, y + 18, title, 19, MUTED, weight=700, extra='letter-spacing="2"'))
@@ -276,8 +314,7 @@ def render_svg(records, jurs, provinces, towns, updated):
     y += 6
     grid.append(f'<line x1="{px}" y1="{y}" x2="{px + pw}" y2="{y}" stroke="#d3d8df" stroke-width="1.5"/>')
     y += 22
-    key = [("circle", "parish", "Eastern Orthodox"), ("diamond", "parish", "Oriental Orthodox"),
-           ("circle", "monastery", "Monastery or skete"), ("circle", "community", "Community without its own church")]
+    key = list(zip(("circle", "diamond", "circle", "circle"), ("parish", "parish", "monastery", "community"), T["key"]))
     for i, (shape, kind, label) in enumerate(key):
         kx = px + (i % 2) * (pw / 2)
         ky = y + (i // 2) * 44
@@ -287,14 +324,10 @@ def render_svg(records, jurs, provinces, towns, updated):
     lx = px + 14
     grid.append(f'<line x1="{lx - 12}" y1="{y + 12}" x2="{lx + 16}" y2="{y + 12}" stroke="{LEADER}" stroke-width="1.6"/>'
                f'<circle cx="{lx - 12}" cy="{y + 12}" r="3" fill="{LEADER}"/>')
-    grid.append(text(px + 40, y + 20, "Line to the actual location where markers were moved apart", 20, INK))
+    grid.append(text(px + 40, y + 20, T["leader"], 20, INK))
 
     # Footnote
-    notes = [
-        "Locations from the churches' own parish lists, the Benelux church directory (orthodoxconnect.be)",
-        "and Kerk op de Kaart; geocoded with the PDOK address register. Where no street address is",
-        "published the marker sits at the town centre. Full sources and notes: README.md.",
-    ]
+    notes = T["notes"]
     fy = MAP_Y + MAP_H - 18 - 30 * (len(notes) - 1)
     for i, line in enumerate(notes):
         grid.append(text(px, fy + 30 * i, line, 18, MUTED))

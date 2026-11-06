@@ -2,9 +2,13 @@
 
 A map of every Eastern Orthodox and Oriental Orthodox parish, monastery and community in the Netherlands, colour-coded by jurisdiction, with a legend.
 
-![Orthodox Churches of the Netherlands](orthodox-churches-nl.png)
+![Orthodox Churches of the Netherlands](orthodox-churches-en.png)
 
-- **Output:** [`orthodox-churches-nl.png`](orthodox-churches-nl.png), a single 3600 × 3000 px image containing the map and the legend.
+- **Output:** two versions of the same map, each a single 3600 × 3000 px image containing the map and the legend:
+  - English: [`orthodox-churches-en.png`](orthodox-churches-en.png)
+  - Dutch: [`orthodox-churches-nl.png`](orthodox-churches-nl.png)
+
+  At 300 dpi each prints at about 30 × 25 cm.
 - **Current data:** 111 entries in 14 jurisdictions: 57 Eastern Orthodox and 54 Oriental Orthodox, including 7 monasteries and 8 communities without their own church building.
 
 Where several churches are close together (Amsterdam, Den Haag, Twente, Maastricht), markers are nudged apart just enough to all stay visible. A thin line with a dot then points to the true location. Town names are placed automatically next to their town, on whichever side is free of markers.
@@ -14,8 +18,9 @@ Where several churches are close together (Amsterdam, Den Haag, Twente, Maastric
 ## Quick start
 
 ```sh
-python3 build.py              # validate data, geocode new addresses, draw the image
-open orthodox-churches-nl.png  # the finished map
+python3 build.py              # validate data, geocode new addresses, draw both images
+open orthodox-churches-en.png  # the finished map in English
+open orthodox-churches-nl.png  # the finished map in Dutch
 ```
 
 Requirements:
@@ -26,11 +31,12 @@ The fonts are Georgia (title) and Helvetica Neue (text); other systems fall back
 
 | Command | What it does |
 |---|---|
-| `python3 build.py` | Validates the data, geocodes new or changed addresses, writes `orthodox-churches-nl.png` |
+| `python3 build.py` | Validates the data, geocodes new or changed addresses, writes `orthodox-churches-en.png` and `orthodox-churches-nl.png` |
+| `python3 build.py --lang nl` | Builds only one language (`en` or `nl`) |
 | `python3 build.py --check` | Validates and geocodes, but writes no map |
 | `python3 build.py --offline` | Uses only cached coordinates; fails if an address is new |
 | `python3 build.py --refresh` | Geocodes every address again (for example after the address register changes) |
-| `python3 build.py --svg PATH` | Also saves the drawing as an SVG (a vector version of the same image) |
+| `python3 build.py --svg DIR` | Also saves each drawing as an SVG (a vector version of the same image) in that folder |
 
 The build stops, writes nothing, and names the CSV line when something is wrong. Problems it catches:
 - an unknown jurisdiction or kind
@@ -41,13 +47,14 @@ The build stops, writes nothing, and names the CSV line when something is wrong.
 ### Repository layout
 
 ```
-build.py                  build script: validation, geocoding, writing the image
+build.py                  build script: validation, geocoding, writing the images
 render.py                 draws the map and legend (layout, colours, sizes, label placement)
 data/churches.csv         the churches: edit this file to add or change entries
-data/jurisdictions.csv    jurisdictions with their legend colour and description
+data/jurisdictions.csv    jurisdictions with their legend colour, names and descriptions in English and Dutch
 data/geocode-cache.json   cached coordinates (generated; keep it in the repo)
 data/provinces.geojson    province outlines for the base map (CBS 2023 via cartomap)
-orthodox-churches-nl.png  THE OUTPUT: map and legend as one image (generated; do not edit by hand)
+orthodox-churches-en.png  OUTPUT: map and legend in English (generated; do not edit by hand)
+orthodox-churches-nl.png  OUTPUT: map and legend in Dutch (generated; do not edit by hand)
 ```
 
 ---
@@ -97,7 +104,7 @@ Delete the row.
 
 ### Add or change a jurisdiction
 
-Edit `data/jurisdictions.csv`. Each row has a short `key` (used in `churches.csv`), a `family` (`Eastern` or `Oriental`, which decides circle or diamond markers), a `color` (`#rrggbb`), a `name` and a `subtitle`. The order of rows is the order in the legend. The legend grows with the number of jurisdictions; with more than about 16, enlarge `H` in `render.py`.
+Edit `data/jurisdictions.csv`. Each row has a short `key` (used in `churches.csv`), a `family` (`Eastern` or `Oriental`, which decides circle or diamond markers), a `color` (`#rrggbb`), and a name and subtitle in each language (`name_en`, `subtitle_en`, `name_nl`, `subtitle_nl`). The names and subtitles are printed in the legend of the matching image. The order of rows is the order in the legend. The legend grows with the number of jurisdictions; with more than about 16, enlarge `H` in `render.py`.
 
 ### Change the look of the image
 
@@ -106,6 +113,14 @@ All drawing settings are at the top of `render.py`:
 - `R`: marker radius. Smaller markers give dense clusters more room.
 - Colours and fonts.
 - `TOWN_LABELS`: which towns are named on the map.
+- `TEXT`: the title, subtitle, legend headings, symbol key and footnote in each language.
+
+The month in the subtitle is the date `data/churches.csv` was last changed, written in the image's language.
+
+To add a language (say German):
+1. Add a `"de"` entry to `TEXT` in `render.py`.
+2. Add `"de"` to `OUTPUTS` and `MONTHS` in `build.py`.
+3. Add `name_de` and `subtitle_de` columns to `data/jurisdictions.csv`.
 
 The build always draws the same image from the same data, so changes are easy to compare.
 
@@ -115,22 +130,22 @@ The build always draws the same image from the same data, so changes are easy to
 
 Eastern Orthodox churches are circles, Oriental Orthodox churches are diamonds.
 
-| Colour | Jurisdiction | Structure in the Netherlands | Entries |
-|---|---|---|---|
-| purple `#7a45c4` | Ecumenical Patriarchate | Archdiocese of Belgium, Exarchate of the Netherlands | 17 |
-| blue `#1f57d6` | Russian Orthodox Church | Moscow Patriarchate · Diocese of The Hague | 10 |
-| light blue `#5ea7f5` | Archdiocese of Russian Churches in W. Europe | Moscow Patriarchate · Russian tradition | 2 |
-| navy `#13306e` | Russian Church Outside Russia (ROCOR) | Self-governing, within the Moscow Patriarchate | 3 |
-| red `#d7263d` | Serbian Orthodox Church | Diocese of Western Europe | 9 |
-| gold `#e6ad00` | Romanian Orthodox Church | Metropolis of Western & Southern Europe | 8 |
-| green `#1f9d55` | Bulgarian Orthodox Church | Diocese of Western & Central Europe | 1 |
-| pink `#e0528a` | Georgian Orthodox Church | Diocese of Belgium & the Netherlands | 2 |
-| brown `#8a5a2b` | Antiochian Orthodox Church | Archdiocese of Germany & Central Europe | 5 |
-| teal `#0f8c82` | Coptic Orthodox Church | Diocese of the Netherlands | 12 |
-| olive `#7d8f14` | Syriac Orthodox Church | Archdiocese of the Netherlands | 14 |
-| orange `#ef7a1a` | Armenian Apostolic Church | Pontifical Legation of Western Europe | 10 |
-| lime `#9cc22b` | Ethiopian Orthodox Tewahedo | Archdiocese of Europe | 4 |
-| sky blue `#26b2e6` | Eritrean Orthodox Tewahedo | Diocese of Europe | 14 |
+| Colour | Jurisdiction | On the map (Dutch) | Structure in the Netherlands | Entries |
+|---|---|---|---|---|
+| purple `#7a45c4` | Ecumenical Patriarchate | Oecumenisch Patriarchaat | Archdiocese of Belgium, Exarchate of the Netherlands | 17 |
+| blue `#1f57d6` | Russian Orthodox Church | Russisch-Orthodoxe Kerk | Moscow Patriarchate · Diocese of The Hague | 10 |
+| light blue `#5ea7f5` | Archdiocese of Russian Churches in W. Europe | Aartsbisdom Russische Kerken in West-Europa | Moscow Patriarchate · Russian tradition | 2 |
+| navy `#13306e` | Russian Church Outside Russia (ROCOR) | Russisch-Orthodoxe Kerk in het Buitenland | Self-governing, within the Moscow Patriarchate | 3 |
+| red `#d7263d` | Serbian Orthodox Church | Servisch-Orthodoxe Kerk | Diocese of Western Europe | 9 |
+| gold `#e6ad00` | Romanian Orthodox Church | Roemeens-Orthodoxe Kerk | Metropolis of Western & Southern Europe | 8 |
+| green `#1f9d55` | Bulgarian Orthodox Church | Bulgaars-Orthodoxe Kerk | Diocese of Western & Central Europe | 1 |
+| pink `#e0528a` | Georgian Orthodox Church | Georgisch-Orthodoxe Kerk | Diocese of Belgium & the Netherlands | 2 |
+| brown `#8a5a2b` | Antiochian Orthodox Church | Antiocheens-Orthodoxe Kerk | Archdiocese of Germany & Central Europe | 5 |
+| teal `#0f8c82` | Coptic Orthodox Church | Koptisch-Orthodoxe Kerk | Diocese of the Netherlands | 12 |
+| olive `#7d8f14` | Syriac Orthodox Church | Syrisch-Orthodoxe Kerk | Archdiocese of the Netherlands | 14 |
+| orange `#ef7a1a` | Armenian Apostolic Church | Armeens-Apostolische Kerk | Pontifical Legation of Western Europe | 10 |
+| lime `#9cc22b` | Ethiopian Orthodox Tewahedo | Ethiopisch-Orthodoxe Tewahedo Kerk | Archdiocese of Europe | 4 |
+| sky blue `#26b2e6` | Eritrean Orthodox Tewahedo | Eritrees-Orthodoxe Tewahedo Kerk | Diocese of Europe | 14 |
 
 The three Russian structures all fall under the Moscow Patriarchate and therefore share a blue colour family.
 
