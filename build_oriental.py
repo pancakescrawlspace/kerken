@@ -56,7 +56,6 @@ TEXT = {
     "chart": "Aandeel van de bevolking dat tot de kerk behoort",
     "majority_line": "meerderheid",
     "legend": "Inkleuring van het land",
-    "legend_note": "De kleur staat voor de kerk; zie het label bij elk land.",
     "notes_title": "Bronnen en toelichting",
     "notes": [
         "Armenië: volkstelling 2022. Ethiopië: volkstelling 2007 (islam 34%, protestanten 19%).",
@@ -269,10 +268,9 @@ def render_svg(rows, countries, updated):
         g.append(f'<rect x="{lx}" y="{ly}" width="56" height="34" rx="4" {swatches[key]}/>')
         g.append(text(lx + 72, ly + 25, label, 22, INK))
         ly += 48
-    g.append(text(lx, ly + 18, TEXT["legend_note"], 19, MUTED))
 
     # Sources and notes
-    ny = ly + 64
+    ny = ly + 34
     g.append(text(lx, ny, TEXT["notes_title"], 19, INK, weight=600))
     for i, line in enumerate(TEXT["notes"]):
         g.append(text(lx, ny + 28 + 26 * i, line, 17, MUTED))
@@ -284,7 +282,7 @@ def render_svg(rows, countries, updated):
     return "\n".join(out)
 
 
-INSET_LEGEND_AT = (56.5, 11.5)           # lon, lat of the top-left corner of the legend in the map-only image
+INSET_LEGEND_AT = (56.5, 9.6)            # lon, lat of the top-left corner of the legend in the map-only image
 # The inset legend is narrow, so its longer texts are split over two lines.
 INSET_TEXT = {
     "meerderheid": ["Meerderheid van de bevolking"],
