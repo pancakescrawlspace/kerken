@@ -1,0 +1,7 @@
+iso,country,church,color,low,high,category,share_text,label_lon,label_lat,leader,source
+ARM,Armenië,Armeens-Apostolische Kerk,#ef7a1a,95,95,meerderheid,95%,47.5,44.6,auto,https://en.wikipedia.org/wiki/Religion_in_Armenia
+ETH,Ethiopië,Ethiopisch-Orthodoxe Tewahedo Kerk,#9cc22b,44,44,grootste,44%,39.6,8.4,auto,https://en.wikipedia.org/wiki/Religion_in_Ethiopia
+ERI,Eritrea,Eritrees-Orthodoxe Tewahedo Kerk,#26b2e6,40,50,grootste,± 40–50%,26.5,17.5,auto,https://en.wikipedia.org/wiki/Religion_in_Eritrea
+EGY,Egypte,Koptisch-Orthodoxe Kerk,#0f8c82,5,10,minderheid,± 5–10%,29.2,25.6,auto,https://en.wikipedia.org/wiki/Christianity_in_Egypt
+SYR,Syrië,Syrisch-Orthodoxe Kerk,#7d8f14,0,1,minderheid,< 1%,32.6,35.4,no,https://en.wikipedia.org/wiki/Christianity_in_Syria
+IND,India,Malankara Orthodox-Syrische Kerk,#c2185b,0.2,0.2,minderheid,"± 0,2%",78.6,22.5,auto,https://en.wikipedia.org/wiki/Oriental_Orthodoxy_by_country

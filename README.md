@@ -63,6 +63,12 @@ orthodox-churches-en.png  OUTPUT: map and legend in English, for screens (genera
 orthodox-churches-en.pdf  OUTPUT: the same as a vector poster PDF, 1200 x 1000 mm (generated)
 orthodox-churches-nl.png  OUTPUT: map and legend in Dutch, for screens (generated; do not edit)
 orthodox-churches-nl.pdf  OUTPUT: the same as a vector poster PDF, 1200 x 1000 mm (generated)
+
+build_oriental.py         builds the second map: the Oriental Orthodox home countries (Dutch)
+data/oriental-orthodox.csv       one row per country: church, colour, share, category, label position
+data/countries-region.geojson    country outlines (Natural Earth 1:50m), clipped to the region
+oriental-orthodox-nl.png  OUTPUT: home-countries map, 3600 x 2550 px (generated)
+oriental-orthodox-nl.pdf  OUTPUT: the same as a vector PDF, 1200 x 850 mm (generated)
 ```
 
 ---
@@ -207,6 +213,58 @@ The first version of the map had only 3 Eritrean churches, and the Hoogkerk chur
 - **Fix.** Each town was searched separately in parish websites, local news and the [Kerk op de Kaart](https://www.kerkopdekaart.nl/) directory, which has a category for Oriental Orthodox churches.
 - **Result.** This found 14 Eritrean locations, matching the figure of 14 churches the community gave in 2023. The same check added a Coptic parish in Enschede, exact addresses for most Syriac churches, and corrected the Ethiopian locations (Veldhoven rather than Eindhoven; Amersfoort's current address).
 - **Tip for adding a group without a central list.** Look for a stated total number of churches and compare your count against it. Kerk op de Kaart is a good place to check.
+
+---
+
+## Second map: the Oriental Orthodox home countries
+
+![De Oriëntaals-Orthodoxe kerken en hun thuislanden](oriental-orthodox-nl.png)
+
+A Dutch-language map of the six Oriental Orthodox churches and their home countries, built with `python3 build_oriental.py` (PNG and PDF; `--no-pdf` and `--svg DIR` work as for the main map).
+
+Each country is coloured by its church. The **fill style** shows how large the church is in that country:
+- **Solid:** the church is followed by a majority of the population.
+- **Hatched:** it is the largest religious community, but has no majority.
+- **Light tint with outline:** it is a small minority.
+
+A bar chart below the map compares the six shares against the 50% line.
+
+| Country | Church | Share of population | Category | Basis |
+|---|---|---|---|---|
+| Armenia | Armenian Apostolic Church | 95% | majority | 2022 census |
+| Ethiopia | Ethiopian Orthodox Tewahedo Church | 44% | largest, no majority | 2007 census (Islam 34%, Protestants 19%); no newer census |
+| Eritrea | Eritrean Orthodox Tewahedo Church | about 40–50% | largest, no majority (uncertain) | No census. Estimates range from 39% (World Religion Database 2025) and about two-fifths (Britannica) to over 50% (CNEWA). Christians and Muslims are each roughly half, so whether the church outnumbers Islam is uncertain. |
+| Egypt | Coptic Orthodox Church | about 5–10% | minority | Estimates range from about 5% (survey-based) to 10%; the church itself says about 12% |
+| Syria | Syriac Orthodox Church | under 1% | minority | All Christians together were about 10% before 2011 and are about 2–3% now; the Syriac Orthodox Church is the second largest after the Greek Orthodox |
+| India | Malankara Orthodox Syrian Church | about 0.2% | minority | About 2.5 million members, mostly in Kerala; all Christians 2.3% (2011 census) |
+
+The Syriac Orthodox Church also has many members outside Syria: in Iraq, Turkey (Tur Abdin) and India, where the Jacobite Syrian Church in Kerala belongs to it.
+
+**Editing:** change figures, labels or colours in `data/oriental-orthodox.csv`.
+- `low` and `high` are the share in percent; for a single figure, make them equal.
+- `share_text` is the text printed on the map.
+- `category` is `meerderheid`, `grootste` or `minderheid`.
+- `label_lon` and `label_lat` place the label. When a label sits outside its country, a line is drawn to the country automatically. Set `leader` to `no` to leave that line out, as for Syria, whose label touches the country.
+
+The map text (title, legend, footnote) is at the top of `build_oriental.py`.
+
+Sources for the figures:
+- [Religion in Armenia](https://en.wikipedia.org/wiki/Religion_in_Armenia) (2022 census)
+- [Religion in Ethiopia](https://en.wikipedia.org/wiki/Religion_in_Ethiopia) (2007 census)
+- Eritrea:
+  - [Religion in Eritrea](https://en.wikipedia.org/wiki/Religion_in_Eritrea)
+  - [Britannica: Eritrean Orthodox Tewahedo Church](https://www.britannica.com/topic/Eritrean-Orthodox-Tewahedo-Church)
+  - [ARDA / World Religion Database: Eritrea](https://www.thearda.com/world-religion/national-profiles?u=76c)
+  - [CNEWA: the Eritrean Orthodox Church](https://cnewa.org/eastern-christian-churches/oriental-orthodox-churches/the-eritrean-orthodox-church/)
+- Egypt:
+  - [Christianity in Egypt](https://en.wikipedia.org/wiki/Christianity_in_Egypt)
+  - [Copts in Egypt](https://en.wikipedia.org/wiki/Copts_in_Egypt)
+  - [Minority Rights Group: Copts](https://minorityrights.org/communities/copts/)
+- Syria:
+  - [Christianity in Syria](https://en.wikipedia.org/wiki/Christianity_in_Syria)
+  - [ARDA / World Religion Database: Syria](https://www.thearda.com/world-religion/national-profiles?u=217c)
+- [Oriental Orthodoxy by country](https://en.wikipedia.org/wiki/Oriental_Orthodoxy_by_country) (India and overview)
+- [Natural Earth](https://www.naturalearthdata.com/) 1:50m country outlines (public domain)
 
 ---
 

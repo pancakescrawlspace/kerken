@@ -57,11 +57,11 @@ TEXT = {
     "nl": {
         "title": "Orthodoxe kerken in Nederland",
         "subtitle": "{total} parochies, kloosters en geloofsgemeenschappen in {jurs} jurisdicties: "
-                    "{east} oosters-orthodox en {orient} oriëntaals-orthodox · {updated}",
+                    "{east} Oosters-Orthodox en {orient} Oriëntaals-Orthodox · {updated}",
         "legend": "Jurisdicties",
         "east": "OOSTERS-ORTHODOX",
         "orient": "ORIËNTAALS-ORTHODOX",
-        "key": ["Oosters-orthodox", "Oriëntaals-orthodox", "Klooster of skite", "Gemeenschap zonder eigen kerk"],
+        "key": ["Oosters-Orthodox", "Oriëntaals-Orthodox", "Klooster of skite", "Gemeenschap zonder eigen kerk"],
         "notes": [
             "Locaties uit de parochielijsten van de kerken zelf, de Benelux-kerkengids (orthodoxconnect.be)",
             "en Kerk op de Kaart; gegeocodeerd met het adressenregister van PDOK. Waar geen straatadres",
