@@ -284,16 +284,60 @@ def render_svg(rows, countries, updated):
     return "\n".join(out)
 
 
+INSET_LEGEND_AT = (56.5, 11.5)           # lon, lat of the top-left corner of the legend in the map-only image
+# The inset legend is narrow, so its longer texts are split over two lines.
+INSET_TEXT = {
+    "meerderheid": ["Meerderheid van de bevolking"],
+    "grootste": ["Grootste geloofsgemeenschap,", "maar geen meerderheid"],
+    "minderheid": ["Kleine minderheid"],
+    "note": ["De kleur staat voor de kerk;", "zie het label bij elk land."],
+}
+
+
+def inset_legend():
+    """A small legend box drawn on the map itself, for the map-only image."""
+    bx, by = EqualArea()(*INSET_LEGEND_AT)
+    pad, gap, sw, sh, fs, lh = 16 * S, 12 * S, 42 * S, 26 * S, 17 * S, 21 * S
+    longest = max(len(line) for key in CATEGORIES for line in INSET_TEXT[key])
+    width = pad * 2 + sw + 12 * S + longest * fs * 0.54
+    rows = [(key, INSET_TEXT[key]) for key in CATEGORIES]
+    height = (pad + 30 * S + sum(max(sh, lh * len(lines)) + gap for _, lines in rows)
+              + lh * len(INSET_TEXT["note"]) + pad)
+    swatches = {
+        "meerderheid": f'fill="{MUTED}" stroke="{render_stroke(MUTED)}" stroke-width="{1.5 * S:.1f}"',
+        "grootste": f'fill="url(#h-legend)" stroke="{render_stroke(MUTED)}" stroke-width="{1.5 * S:.1f}"',
+        "minderheid": f'fill="{tint(MUTED, 0.22)}" stroke="{MUTED}" stroke-width="{2.2 * S:.1f}"',
+    }
+    out = [f'<g><rect x="{bx:.1f}" y="{by:.1f}" width="{width:.1f}" height="{height:.1f}" rx="{10 * S}" '
+           f'fill="#ffffff" fill-opacity="0.92" stroke="{BORDER}" stroke-width="{1.2 * S:.1f}"/>',
+           text(bx + pad, by + pad + 20 * S, TEXT["legend"], f"{20 * S:.0f}", INK, weight=600)]
+    y = by + pad + 34 * S
+    for key, lines in rows:
+        block = max(sh, lh * len(lines))
+        out.append(f'<rect x="{bx + pad:.1f}" y="{y + (block - sh) / 2:.1f}" width="{sw:.1f}" height="{sh:.1f}" '
+                   f'rx="{4 * S}" {swatches[key]}/>')
+        ty = y + block / 2 - lh * (len(lines) - 1) / 2 + fs * 0.35
+        for i, line in enumerate(lines):
+            out.append(text(bx + pad + sw + 12 * S, ty + lh * i, line, f"{fs:.0f}", INK))
+        y += block + gap
+    for i, line in enumerate(INSET_TEXT["note"]):
+        out.append(text(bx + pad, y + 12 * S + lh * i, line, f"{15 * S:.0f}", MUTED))
+    out.append("</g>")
+    return "".join(out)
+
+
 def map_only(svg):
-    """The same drawing, cropped to the map frame (labels included, title/chart/legend left out)."""
+    """The same drawing, cropped to the map frame (labels included, title/chart/legend left out),
+    with a small legend on the map so the image can stand on its own."""
     x, y, w, h = (v * S for v in MAP)
     corner = f'rx="{14 * S}"'
     if svg.count(corner) != 2:
         raise BuildError("could not find the map frame corners to square them off")
     svg = svg.replace(corner, 'rx="0"')
     root = f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}">'
-    return svg.replace(root, f'<svg xmlns="http://www.w3.org/2000/svg" width="{w:g}" height="{h:g}" '
-                             f'viewBox="{x:g} {y:g} {w:g} {h:g}">', 1)
+    svg = svg.replace(root, f'<svg xmlns="http://www.w3.org/2000/svg" width="{w:g}" height="{h:g}" '
+                            f'viewBox="{x:g} {y:g} {w:g} {h:g}">', 1)
+    return svg.replace("</svg>", inset_legend() + "\n</svg>", 1) if svg.endswith("</svg>") else svg
 
 
 def main():
