@@ -1,0 +1,737 @@
+{
+ "adres|Adelaarstraat 15B 1171 TM Badhoevedorp": {
+  "lat": 52.335184,
+  "lon": 4.780827,
+  "found": "Adelaarstraat 15B, 1171TM Badhoevedorp",
+  "postcode": "1171TM",
+  "town": "Badhoevedorp"
+ },
+ "adres|Adriaan van Bergenstraat 61 3554 VC Utrecht": {
+  "lat": 52.111963,
+  "lon": 5.093751,
+  "found": "Adriaan van Bergenstraat 61, 3554VC Utrecht",
+  "postcode": "3554VC",
+  "town": "Utrecht"
+ },
+ "adres|Adrien Mildersstraat 47A-01 3022 NC Rotterdam": {
+  "lat": 51.919233,
+  "lon": 4.453293,
+  "found": "Adrien Mildersstraat 47A-01, 3022NC Rotterdam",
+  "postcode": "3022NC",
+  "town": "Rotterdam"
+ },
+ "adres|Amstelveenseweg 965 1081 JG Amsterdam": {
+  "lat": 52.322295,
+  "lon": 4.858201,
+  "found": "Amstelveenseweg 965, 1081JG Amsterdam",
+  "postcode": "1081JG",
+  "town": "Amsterdam"
+ },
+ "adres|Amsterdamseweg 96 6814 GG Arnhem": {
+  "lat": 51.987045,
+  "lon": 5.897489,
+  "found": "Amsterdamseweg 96, 6814GG Arnhem",
+  "postcode": "6814GG",
+  "town": "Arnhem"
+ },
+ "adres|Amsterdamstraat 59 2032 PN Haarlem": {
+  "lat": 52.378422,
+  "lon": 4.648584,
+  "found": "Amsterdamstraat 59A, 2032PN Haarlem",
+  "postcode": "2032PN",
+  "town": "Haarlem"
+ },
+ "adres|Barkstraat 5 9745 BT Groningen": {
+  "lat": 53.215376,
+  "lon": 6.503996,
+  "found": "Barkstraat 5, 9745BT Groningen",
+  "postcode": "9745BT",
+  "town": "Groningen"
+ },
+ "adres|Bethaniënstraat 1 6826 TA Arnhem": {
+  "lat": 51.979221,
+  "lon": 5.950117,
+  "found": "Bethaniënstraat 1, 6826TA Arnhem",
+  "postcode": "6826TA",
+  "town": "Arnhem"
+ },
+ "adres|Botenmakersstraat 114 1506 TH Zaandam": {
+  "lat": 52.441342,
+  "lon": 4.816525,
+  "found": "Botenmakersstraat 114, 1506TH Zaandam",
+  "postcode": "1506TH",
+  "town": "Zaandam"
+ },
+ "adres|Broederweg 10 8261 GT Kampen": {
+  "lat": 52.557877,
+  "lon": 5.913087,
+  "found": "Broederweg 10, 8261GT Kampen",
+  "postcode": "8261GT",
+  "town": "Kampen"
+ },
+ "adres|Buorren 18 8584 VC Hemelum": {
+  "lat": 52.881948,
+  "lon": 5.455425,
+  "found": "Buorren 18, 8584VC Hemelum",
+  "postcode": "8584VC",
+  "town": "Hemelum"
+ },
+ "adres|Burgemeester Eliasstraat 72 1063 EX Amsterdam": {
+  "lat": 52.383427,
+  "lon": 4.827472,
+  "found": "Burgemeester Eliasstraat 72A, 1063EX Amsterdam",
+  "postcode": "1063EX",
+  "town": "Amsterdam"
+ },
+ "adres|Castorweg 2 7556 MD Hengelo": {
+  "lat": 52.277182,
+  "lon": 6.800356,
+  "found": "Castorweg 2A, 7556MD Hengelo",
+  "postcode": "7556MD",
+  "town": "Hengelo"
+ },
+ "adres|Ceintuurbaan 43 1402 HB Bussum": {
+  "lat": 52.2675,
+  "lon": 5.169784,
+  "found": "Ceintuurbaan 43, 1402HB Bussum",
+  "postcode": "1402HB",
+  "town": "Bussum"
+ },
+ "adres|Coenraad Abelsstraat 31A 6001 VJ Weert": {
+  "lat": 51.252395,
+  "lon": 5.699919,
+  "found": "Coenraad Abelsstraat 31A, 6001VJ Weert",
+  "postcode": "6001VJ",
+  "town": "Weert"
+ },
+ "adres|Dorpsstraat 107 2445 AL Aarlanderveen": {
+  "lat": 52.139568,
+  "lon": 4.729963,
+  "found": "Dorpsstraat 107, 2445AL Aarlanderveen",
+  "postcode": "2445AL",
+  "town": "Aarlanderveen"
+ },
+ "adres|Dorpstraat 18 5504 HH Veldhoven": {
+  "lat": 51.403637,
+  "lon": 5.397043,
+  "found": "Dorpstraat 18, 5504HH Veldhoven",
+  "postcode": "5504HH",
+  "town": "Veldhoven"
+ },
+ "adres|Dr. Kuyperstraat 2 2514 BB 's-Gravenhage": {
+  "lat": 52.086817,
+  "lon": 4.311981,
+  "found": "Dr. Kuyperstraat 2, 2514BB 's-Gravenhage",
+  "postcode": "2514BB",
+  "town": "'s-Gravenhage"
+ },
+ "adres|Eindhovenseweg 3 5056 RP Berkel-Enschot": {
+  "lat": 51.549408,
+  "lon": 5.128456,
+  "found": "Eindhovenseweg 3a-mz, 5056RP Berkel-Enschot",
+  "postcode": "5056RP",
+  "town": "Berkel-Enschot"
+ },
+ "adres|Einsteinstraat 60 6227 BZ Maastricht": {
+  "lat": 50.840359,
+  "lon": 5.736381,
+  "found": "Einsteinstraat 60, 6227BZ Maastricht",
+  "postcode": "6227BZ",
+  "town": "Maastricht"
+ },
+ "adres|Ganzevoortsingel 2 9711 AL Groningen": {
+  "lat": 53.213964,
+  "lon": 6.561727,
+  "found": "Ganzevoortsingel 2a, 9711AL Groningen",
+  "postcode": "9711AL",
+  "town": "Groningen"
+ },
+ "adres|Glanerbrugstraat 33A 7585 PK Glane": {
+  "lat": 52.227748,
+  "lon": 6.986071,
+  "found": "Glanerbrugstraat 33A, 7585PK Glane",
+  "postcode": "7585PK",
+  "town": "Glane"
+ },
+ "adres|Grote Kerkstraat 26 5911 CH Venlo": {
+  "lat": 51.370602,
+  "lon": 6.171303,
+  "found": "Grote Kerkstraat 26, 5911CH Venlo",
+  "postcode": "5911CH",
+  "town": "Venlo"
+ },
+ "adres|Gruttoweg 7 5725 RT Asten": {
+  "lat": 51.375679,
+  "lon": 5.824236,
+  "found": "Gruttoweg 7, 5725RT Heusden",
+  "postcode": "5725RT",
+  "town": "Heusden"
+ },
+ "adres|Herenstraat 164 2291 BL Wateringen": {
+  "lat": 52.02695,
+  "lon": 4.280612,
+  "found": "Herenstraat 164A, 2291BL Wateringen",
+  "postcode": "2291BL",
+  "town": "Wateringen"
+ },
+ "adres|Hogelandsingel 39 7512 GB Enschede": {
+  "lat": 52.214691,
+  "lon": 6.910462,
+  "found": "Hogelandsingel 39, 7512GB Enschede",
+  "postcode": "7512GB",
+  "town": "Enschede"
+ },
+ "adres|Hoogstraat 301 5654 NB Eindhoven": {
+  "lat": 51.424943,
+  "lon": 5.463151,
+  "found": "Hoogstraat 301, 5654NB Eindhoven",
+  "postcode": "5654NB",
+  "town": "Eindhoven"
+ },
+ "adres|Hornestraat 1 5707 TM Helmond": {
+  "lat": 51.473848,
+  "lon": 5.64317,
+  "found": "Hornestraat 1, 5707TM Helmond",
+  "postcode": "5707TM",
+  "town": "Helmond"
+ },
+ "adres|Jacob Catslaan 28 3818 WK Amersfoort": {
+  "lat": 52.143615,
+  "lon": 5.372012,
+  "found": "Jacob Catslaan 28A, 3818WK Amersfoort",
+  "postcode": "3818WK",
+  "town": "Amersfoort"
+ },
+ "adres|Juffrouw Idastraat 13 2513 BE 's-Gravenhage": {
+  "lat": 52.07926,
+  "lon": 4.305865,
+  "found": "Juffrouw Idastraat 13A, 2513BE 's-Gravenhage",
+  "postcode": "2513BE",
+  "town": "'s-Gravenhage"
+ },
+ "adres|Keizer Karelplein 3 6211 TC Maastricht": {
+  "lat": 50.849449,
+  "lon": 5.68715,
+  "found": "Keizer Karelplein 3, 6211TC Maastricht",
+  "postcode": "6211TC",
+  "town": "Maastricht"
+ },
+ "adres|Keizersgracht 220 1016 DZ Amsterdam": {
+  "lat": 52.373119,
+  "lon": 4.884542,
+  "found": "Keizersgracht 220, 1016DZ Amsterdam",
+  "postcode": "1016DZ",
+  "town": "Amsterdam"
+ },
+ "adres|Kerklaan 31 3731 EE De Bilt": {
+  "lat": 52.103572,
+  "lon": 5.171496,
+  "found": "Kerklaan 31, 3731EE De Bilt",
+  "postcode": "3731EE",
+  "town": "De Bilt"
+ },
+ "adres|Kerkring 1 4444 AB 's-Heer Abtskerke": {
+  "lat": 51.470839,
+  "lon": 3.88097,
+  "found": "Kerkring 1, 4444AB 's-Heer Abtskerke",
+  "postcode": "4444AB",
+  "town": "'s-Heer Abtskerke"
+ },
+ "adres|Korte Assenstraat 13 7411 JP Deventer": {
+  "lat": 52.252105,
+  "lon": 6.15709,
+  "found": "Korte Assenstraat 13, 7411JP Deventer",
+  "postcode": "7411JP",
+  "town": "Deventer"
+ },
+ "adres|Larikslaan 182 3053 LG Rotterdam": {
+  "lat": 51.960793,
+  "lon": 4.472993,
+  "found": "Larikslaan 182, 3053LG Rotterdam",
+  "postcode": "3053LG",
+  "town": "Rotterdam"
+ },
+ "adres|Lede 121 3075 HH Rotterdam": {
+  "lat": 51.886054,
+  "lon": 4.508198,
+  "found": "Lede 121, 3075HH Rotterdam",
+  "postcode": "3075HH",
+  "town": "Rotterdam"
+ },
+ "adres|Lijnbaansgracht 47 1015 GR Amsterdam": {
+  "lat": 52.379123,
+  "lon": 4.880332,
+  "found": "Lijnbaansgracht 47, 1015GR Amsterdam",
+  "postcode": "1015GR",
+  "town": "Amsterdam"
+ },
+ "adres|Louis Bouwmeesterstraat 74 1065 KX Amsterdam": {
+  "lat": 52.352366,
+  "lon": 4.822704,
+  "found": "Louis Bouwmeesterstraat 74, 1065KX Amsterdam",
+  "postcode": "1065KX",
+  "town": "Amsterdam"
+ },
+ "adres|M.H. Tromplaan 50 7513 AB Enschede": {
+  "lat": 52.220096,
+  "lon": 6.883305,
+  "found": "M.H. Tromplaan 50A, 7513AB Enschede",
+  "postcode": "7513AB",
+  "town": "Enschede"
+ },
+ "adres|Matthias Withoosstraat 34 3812 ST Amersfoort": {
+  "lat": 52.157717,
+  "lon": 5.373005,
+  "found": "Matthias Withoosstraat 34, 3812ST Amersfoort",
+  "postcode": "3812ST",
+  "town": "Amersfoort"
+ },
+ "adres|Middelberterweg 13 9723 ET Groningen": {
+  "lat": 53.222046,
+  "lon": 6.636754,
+  "found": "Middelberterweg 13a, 9723ET Groningen",
+  "postcode": "9723ET",
+  "town": "Groningen"
+ },
+ "adres|Middenweg OZ 5 7881 XG Emmer-Compascuum": {
+  "lat": 52.806208,
+  "lon": 6.990269,
+  "found": "Middenweg OZ 5, 7881XG Emmer-Compascuum",
+  "postcode": "7881XG",
+  "town": "Emmer-Compascuum"
+ },
+ "adres|Ministerlaan 203 8014 XE Zwolle": {
+  "lat": 52.48285,
+  "lon": 6.108603,
+  "found": "Ministerlaan 203, 8014XE Zwolle",
+  "postcode": "8014XE",
+  "town": "Zwolle"
+ },
+ "adres|Mosstraat 2 1032 JW Amsterdam": {
+  "lat": 52.393172,
+  "lon": 4.913285,
+  "found": "Mosstraat 2, 1032JW Amsterdam",
+  "postcode": "1032JW",
+  "town": "Amsterdam"
+ },
+ "adres|Nimrod 15a 5454 HG Sint Hubert": {
+  "lat": 51.677333,
+  "lon": 5.804231,
+  "found": "Nimrod 15a, 5454HG Sint Hubert",
+  "postcode": "5454HG",
+  "town": "Sint Hubert"
+ },
+ "adres|Obrechtstraat 50 2625 XN Delft": {
+  "lat": 51.995418,
+  "lon": 4.347999,
+  "found": "Obrechtstraat 50, 2625XN Delft",
+  "postcode": "2625XN",
+  "town": "Delft"
+ },
+ "adres|Obrechtstraat 9 2517 VL 's-Gravenhage": {
+  "lat": 52.083337,
+  "lon": 4.288526,
+  "found": "Obrechtstraat 9, 2517VL 's-Gravenhage",
+  "postcode": "2517VL",
+  "town": "'s-Gravenhage"
+ },
+ "adres|Oosteinderweg 394 1432 BG Aalsmeer": {
+  "lat": 52.284948,
+  "lon": 4.800756,
+  "found": "Oosteinderweg 394, 1432BG Aalsmeer",
+  "postcode": "1432BG",
+  "town": "Aalsmeer"
+ },
+ "adres|Overhandstraat 71 3195 SE Pernis": {
+  "lat": 51.88828,
+  "lon": 4.388894,
+  "found": "Overhandstraat 71, 3195SE Pernis Rotterdam",
+  "postcode": "3195SE",
+  "town": "Pernis Rotterdam"
+ },
+ "adres|Potterieplein 50 6216 VB Maastricht": {
+  "lat": 50.851262,
+  "lon": 5.658178,
+  "found": "Potterieplein 50, 6216VB Maastricht",
+  "postcode": "6216VB",
+  "town": "Maastricht"
+ },
+ "adres|Raadhuisstraat 3 4715 CB Rucphen": {
+  "lat": 51.532649,
+  "lon": 4.556872,
+  "found": "Raadhuisstraat 3, 4715CB Rucphen",
+  "postcode": "4715CB",
+  "town": "Rucphen"
+ },
+ "adres|Roelf Bosmastraat 35 7462 MZ Rijssen": {
+  "lat": 52.302585,
+  "lon": 6.500257,
+  "found": "Roelf Bosmastraat 35, 7462MZ Rijssen",
+  "postcode": "7462MZ",
+  "town": "Rijssen"
+ },
+ "adres|Schiedamsesingel 220 3012 BA Rotterdam": {
+  "lat": 51.912448,
+  "lon": 4.479096,
+  "found": "Schiedamsesingel 220, 3012BA Rotterdam",
+  "postcode": "3012BA",
+  "town": "Rotterdam"
+ },
+ "adres|Schoolstraat 1 5366 AT Megen": {
+  "lat": 51.822791,
+  "lon": 5.563686,
+  "found": "Schoolstraat 1, 5366AT Megen",
+  "postcode": "5366AT",
+  "town": "Megen"
+ },
+ "adres|Sint Maartenslaan 37 6221 AW Maastricht": {
+  "lat": 50.850787,
+  "lon": 5.700406,
+  "found": "Sint Maartenslaan 37B, 6221AW Maastricht",
+  "postcode": "6221AW",
+  "town": "Maastricht"
+ },
+ "adres|Sint Willibrordstraat 1 5056 HS Berkel-Enschot": {
+  "lat": 51.590467,
+  "lon": 5.143614,
+  "found": "Sint Willibrordstraat 1, 5056HS Berkel-Enschot",
+  "postcode": "5056HS",
+  "town": "Berkel-Enschot"
+ },
+ "adres|Sportlaan Driene 6 7552 HA Hengelo": {
+  "lat": 52.264094,
+  "lon": 6.818074,
+  "found": "Sportlaan Driene 6, 7552HA Hengelo",
+  "postcode": "7552HA",
+  "town": "Hengelo"
+ },
+ "adres|Springweg 89 3511 VL Utrecht": {
+  "lat": 52.086676,
+  "lon": 5.11996,
+  "found": "Springweg 89, 3511VL Utrecht",
+  "postcode": "3511VL",
+  "town": "Utrecht"
+ },
+ "adres|Stalkaarsen 19 4205 PG Gorinchem": {
+  "lat": 51.840642,
+  "lon": 4.961128,
+  "found": "Stalkaarsen 19, 4205PG Gorinchem",
+  "postcode": "4205PG",
+  "town": "Gorinchem"
+ },
+ "adres|Steendorpstraat 4 4826 EP Breda": {
+  "lat": 51.612973,
+  "lon": 4.784165,
+  "found": "Steendorpstraat 4, 4826EP Breda",
+  "postcode": "4826EP",
+  "town": "Breda"
+ },
+ "adres|Theodorahof 20 8011 AA Zwolle": {
+  "lat": 52.510985,
+  "lon": 6.084963,
+  "found": "Theodorahof 20, 8011AA Zwolle",
+  "postcode": "8011AA",
+  "town": "Zwolle"
+ },
+ "adres|Thijlaan 20 7576 ZB Oldenzaal": {
+  "lat": 52.31663,
+  "lon": 6.91131,
+  "found": "Thijlaan 20, 7576ZB Oldenzaal",
+  "postcode": "7576ZB",
+  "town": "Oldenzaal"
+ },
+ "adres|Twekkelerweg 110 7547 RN Enschede": {
+  "lat": 52.22846,
+  "lon": 6.826605,
+  "found": "Twekkelerweg 110, 7547RN Enschede",
+  "postcode": "7547RN",
+  "town": "Enschede"
+ },
+ "adres|Valkenburgerplein 20 2103 AT Heemstede": {
+  "lat": 52.343296,
+  "lon": 4.621325,
+  "found": "Valkenburgerplein 20, 2103AT Heemstede",
+  "postcode": "2103AT",
+  "town": "Heemstede"
+ },
+ "adres|Veluwelaan 22 1079 RA Amsterdam": {
+  "lat": 52.338442,
+  "lon": 4.896749,
+  "found": "Veluwelaan 22A, 1079RA Amsterdam",
+  "postcode": "1079RA",
+  "town": "Amsterdam"
+ },
+ "adres|Verdronkenoord 68 1811 BG Alkmaar": {
+  "lat": 52.629625,
+  "lon": 4.752103,
+  "found": "Verdronkenoord 68, 1811BG Alkmaar",
+  "postcode": "1811BG",
+  "town": "Alkmaar"
+ },
+ "adres|Vlaardingerdijk 48 3117 EW Schiedam": {
+  "lat": 51.916317,
+  "lon": 4.388486,
+  "found": "Vlaardingerdijk 48, 3117EW Schiedam",
+  "postcode": "3117EW",
+  "town": "Schiedam"
+ },
+ "adres|Vlierstraat 93 7544 GG Enschede": {
+  "lat": 52.198061,
+  "lon": 6.887431,
+  "found": "Vlierstraat 93, 7544GG Enschede",
+  "postcode": "7544GG",
+  "town": "Enschede"
+ },
+ "adres|Vriezenveenseweg 174 7602 PV Almelo": {
+  "lat": 52.378714,
+  "lon": 6.663878,
+  "found": "Vriezenveenseweg 174, 7602PV Almelo",
+  "postcode": "7602PV",
+  "town": "Almelo"
+ },
+ "adres|Wesselerbrinklaan 110 7544 JZ Enschede": {
+  "lat": 52.193647,
+  "lon": 6.877365,
+  "found": "Wesselerbrinklaan 110, 7544JZ Enschede",
+  "postcode": "7544JZ",
+  "town": "Enschede"
+ },
+ "adres|Westelijk Halfrond 1 1183 HN Amstelveen": {
+  "lat": 52.308204,
+  "lon": 4.876716,
+  "found": "Westelijk Halfrond 1, 1183HN Amstelveen",
+  "postcode": "1183HN",
+  "town": "Amstelveen"
+ },
+ "adres|Westzeedijk 333 3015 AA Rotterdam": {
+  "lat": 51.911445,
+  "lon": 4.47466,
+  "found": "Westzeedijk 333, 3015AA Rotterdam",
+  "postcode": "3015AA",
+  "town": "Rotterdam"
+ },
+ "adres|Weverstraat 9 4389 TR Ritthem": {
+  "lat": 51.452072,
+  "lon": 3.626034,
+  "found": "Weverstraat 9, 4389TR Ritthem",
+  "postcode": "4389TR",
+  "town": "Ritthem"
+ },
+ "adres|Woudenbergseweg 38 3701 BC Zeist": {
+  "lat": 52.084931,
+  "lon": 5.248514,
+  "found": "Woudenbergseweg 38, 3701BC Zeist",
+  "postcode": "3701BC",
+  "town": "Zeist"
+ },
+ "adres|de Hooidollen 17 8918 HV Leeuwarden": {
+  "lat": 53.215878,
+  "lon": 5.791039,
+  "found": "de Hooidollen 17, 8918HV Leeuwarden",
+  "postcode": "8918HV",
+  "town": "Leeuwarden"
+ },
+ "adres|van der Mondeweg 24a 6685 BP Haalderen": {
+  "lat": 51.885994,
+  "lon": 5.927422,
+  "found": "van der Mondeweg 24a, 6685BP Haalderen",
+  "postcode": "6685BP",
+  "town": "Haalderen"
+ },
+ "woonplaats|'s-Gravenhage": {
+  "lat": 52.072073,
+  "lon": 4.293001,
+  "found": "'s-Gravenhage, 's-Gravenhage, Zuid-Holland",
+  "postcode": "",
+  "town": "'s-Gravenhage"
+ },
+ "woonplaats|'s-Hertogenbosch": {
+  "lat": 51.709975,
+  "lon": 5.295711,
+  "found": "'s-Hertogenbosch, 's-Hertogenbosch, Noord-Brabant",
+  "postcode": "",
+  "town": "'s-Hertogenbosch"
+ },
+ "woonplaats|Amersfoort": {
+  "lat": 52.168157,
+  "lon": 5.389413,
+  "found": "Amersfoort, Amersfoort, Utrecht",
+  "postcode": "",
+  "town": "Amersfoort"
+ },
+ "woonplaats|Amsterdam": {
+  "lat": 52.373443,
+  "lon": 4.904544,
+  "found": "Amsterdam, Amsterdam, Noord-Holland",
+  "postcode": "",
+  "town": "Amsterdam"
+ },
+ "woonplaats|Apeldoorn": {
+  "lat": 52.210836,
+  "lon": 5.973735,
+  "found": "Apeldoorn, Apeldoorn, Gelderland",
+  "postcode": "",
+  "town": "Apeldoorn"
+ },
+ "woonplaats|Arnhem": {
+  "lat": 52.001137,
+  "lon": 5.892592,
+  "found": "Arnhem, Arnhem, Gelderland",
+  "postcode": "",
+  "town": "Arnhem"
+ },
+ "woonplaats|Assen": {
+  "lat": 52.987863,
+  "lon": 6.549362,
+  "found": "Assen, Assen, Drenthe",
+  "postcode": "",
+  "town": "Assen"
+ },
+ "woonplaats|Beverwijk": {
+  "lat": 52.482063,
+  "lon": 4.667949,
+  "found": "Beverwijk, Beverwijk, Noord-Holland",
+  "postcode": "",
+  "town": "Beverwijk"
+ },
+ "woonplaats|Breda": {
+  "lat": 51.580358,
+  "lon": 4.755573,
+  "found": "Breda, Breda, Noord-Brabant",
+  "postcode": "",
+  "town": "Breda"
+ },
+ "woonplaats|Dordrecht": {
+  "lat": 51.781507,
+  "lon": 4.708874,
+  "found": "Dordrecht, Dordrecht, Zuid-Holland",
+  "postcode": "",
+  "town": "Dordrecht"
+ },
+ "woonplaats|Duivendrecht": {
+  "lat": 52.33056,
+  "lon": 4.939103,
+  "found": "Duivendrecht, Ouder-Amstel, Noord-Holland",
+  "postcode": "",
+  "town": "Duivendrecht"
+ },
+ "woonplaats|Eindhoven": {
+  "lat": 51.450162,
+  "lon": 5.458535,
+  "found": "Eindhoven, Eindhoven, Noord-Brabant",
+  "postcode": "",
+  "town": "Eindhoven"
+ },
+ "woonplaats|Enschede": {
+  "lat": 52.220807,
+  "lon": 6.877788,
+  "found": "Enschede, Enschede, Overijssel",
+  "postcode": "",
+  "town": "Enschede"
+ },
+ "woonplaats|Groningen": {
+  "lat": 53.222229,
+  "lon": 6.563343,
+  "found": "Groningen, Groningen, Groningen",
+  "postcode": "",
+  "town": "Groningen"
+ },
+ "woonplaats|Haarlem": {
+  "lat": 52.38242,
+  "lon": 4.646685,
+  "found": "Haarlem, Haarlem, Noord-Holland",
+  "postcode": "",
+  "town": "Haarlem"
+ },
+ "woonplaats|Hengelo": {
+  "lat": 52.254906,
+  "lon": 6.778194,
+  "found": "Hengelo, Hengelo (O), Overijssel",
+  "postcode": "",
+  "town": "Hengelo"
+ },
+ "woonplaats|Kapelle": {
+  "lat": 51.478727,
+  "lon": 3.959077,
+  "found": "Kapelle, Kapelle, Zeeland",
+  "postcode": "",
+  "town": "Kapelle"
+ },
+ "woonplaats|Leeuwarden": {
+  "lat": 53.20066,
+  "lon": 5.803089,
+  "found": "Leeuwarden, Leeuwarden, Fryslân",
+  "postcode": "",
+  "town": "Leeuwarden"
+ },
+ "woonplaats|Leidschendam": {
+  "lat": 52.093352,
+  "lon": 4.434896,
+  "found": "Leidschendam, Leidschendam-Voorburg, Zuid-Holland",
+  "postcode": "",
+  "town": "Leidschendam"
+ },
+ "woonplaats|Lievelde": {
+  "lat": 52.015454,
+  "lon": 6.593403,
+  "found": "Lievelde, Oost Gelre, Gelderland",
+  "postcode": "",
+  "town": "Lievelde"
+ },
+ "woonplaats|Maastricht": {
+  "lat": 50.852967,
+  "lon": 5.69953,
+  "found": "Maastricht, Maastricht, Limburg",
+  "postcode": "",
+  "town": "Maastricht"
+ },
+ "woonplaats|Middelburg": {
+  "lat": 51.502567,
+  "lon": 3.615896,
+  "found": "Middelburg, Middelburg, Zeeland",
+  "postcode": "",
+  "town": "Middelburg"
+ },
+ "woonplaats|Nieuwegein": {
+  "lat": 52.030818,
+  "lon": 5.094672,
+  "found": "Nieuwegein, Nieuwegein, Utrecht",
+  "postcode": "",
+  "town": "Nieuwegein"
+ },
+ "woonplaats|Nijmegen": {
+  "lat": 51.83482,
+  "lon": 5.833205,
+  "found": "Nijmegen, Nijmegen, Gelderland",
+  "postcode": "",
+  "town": "Nijmegen"
+ },
+ "woonplaats|Roosendaal": {
+  "lat": 51.529259,
+  "lon": 4.458697,
+  "found": "Roosendaal, Roosendaal, Noord-Brabant",
+  "postcode": "",
+  "town": "Roosendaal"
+ },
+ "woonplaats|Rotterdam": {
+  "lat": 51.922488,
+  "lon": 4.486536,
+  "found": "Rotterdam, Rotterdam, Zuid-Holland",
+  "postcode": "",
+  "town": "Rotterdam"
+ },
+ "woonplaats|Utrecht": {
+  "lat": 52.088692,
+  "lon": 5.095204,
+  "found": "Utrecht, Utrecht, Utrecht",
+  "postcode": "",
+  "town": "Utrecht"
+ },
+ "woonplaats|Zwolle": {
+  "lat": 52.518686,
+  "lon": 6.118364,
+  "found": "Zwolle, Zwolle, Overijssel",
+  "postcode": "",
+  "town": "Zwolle"
+ }
+}

@@ -1,0 +1,112 @@
+jurisdiction,name,kind,building,street,postcode,place,note,lat,lon,source
+ep,Parish of St Nicholas of Myra,parish,,Lijnbaansgracht 47,1015 GR,Amsterdam,Moved from the Moscow Patriarchate in 2022,,,https://orthodoxekerk.net/parochies/oecumenisch-patriarchaat/
+ep,Parish of St Catherine,parish,,Botenmakersstraat 114,1506 TH,Zaandam,,,,https://orthodoxekerk.net/parochies/oecumenisch-patriarchaat/
+ep,Parish of the Holy Myrrh-bearers,parish,Cemetery chapel,Vogelenzanglaan 21,4835 EL,Breda,,51.56929,4.7917,https://orthodoxekerk.net/parochies/oecumenisch-patriarchaat/
+ep,Parish of St Nektarios of Aegina,parish,,Hoogstraat 301,5654 NB,Eindhoven,,,,https://orthodoxekerk.net/parochies/oecumenisch-patriarchaat/
+ep,Parish of St Maximos the Confessor,parish,,Stalkaarsen 19,4205 PG,Gorinchem,,,,https://orthodoxekerk.net/parochies/oecumenisch-patriarchaat/
+ep,Parish of St Theophano,parish,Byzantine Chapel,Dobbelmannweg 3,6531 KT,Nijmegen,"Byzantine Chapel, shared with the Russian parish of St Tikhon",51.83032,5.84744,https://orthodoxekerk.net/parochies/oecumenisch-patriarchaat/
+ep,Cathedral of St Nicholas,parish,,Westzeedijk 333,3015 AA,Rotterdam,,,,https://orthodoxekerk.net/parochies/oecumenisch-patriarchaat/
+ep,Parish of the Annunciation,parish,,Springweg 89,3511 VL,Utrecht,,,,https://orthodoxekerk.net/parochies/oecumenisch-patriarchaat/
+ep,Parish of St Porphyrios,parish,Koningshoeven Abbey,Eindhovenseweg 3,5056 RP,Berkel-Enschot,"Chapel of Koningshoeven Abbey, Tilburg",,,https://orthodoxekerk.net/parochies/oecumenisch-patriarchaat/
+ep,Parish of St James and St Paraskeva,parish,,Juffrouw Idastraat 13,2513 BE,Den Haag,,,,https://orthodoxekerk.net/parochies/oecumenisch-patriarchaat/
+ep,Parish of the Mother of God Faneromeni,parish,,Grote Kerkstraat 26,5911 CH,Venlo,,,,https://orthodoxekerk.net/parochies/oecumenisch-patriarchaat/
+ep,Parish of St Boniface,parish,,Broederweg 10,8261 GT,Kampen,St Anna Chapel; first liturgy January 2024,,,https://orthodoxconnect.be/kerken
+ep,Parish of the Nativity of the Mother of God and St Adalbert,parish,,Verdronkenoord 68,1811 BG,Alkmaar,Also serves in Egmond-Binnen,,,https://orthodoxconnect.be/kerken
+ep,Parish of the Belt of the Mother of God,parish,Basilica of St Servatius,Keizer Karelplein 3,6211 TC,Maastricht,Chapel of the Basilica of St Servatius; founded 2026,,,https://orthodoxconnect.be/kerken
+ep,Monastery of the Prophet Elijah,monastery,,Nimrod 15a,5454 HG,Sint Hubert,,,,https://orthodoxekerk.net/parochies/oecumenisch-patriarchaat/
+ep,Monastery of the Nativity of the Mother of God,monastery,,Gruttoweg 7,5725 RT,Asten,,,,https://orthodoxekerk.net/parochies/oecumenisch-patriarchaat/
+ep,Monastery of St John the Baptist,monastery,,Dr. Kuyperstraat 2,2514 BB,Den Haag,,,,https://orthodoxekerk.net/parochies/oecumenisch-patriarchaat/
+mp,Parish of St Alexander Nevsky,parish,,Schiedamsesingel 220,3012 BA,Rotterdam,,,,https://russian-diocese.nl/parochies/lijst-van-parochies/
+mp,Parish of St Sergius of Radonezh,parish,,Veluwelaan 22,1079 RA,Amsterdam,,,,https://russian-diocese.nl/parochies/lijst-van-parochies/
+mp,Parish of St Mary Magdalene,parish,,Obrechtstraat 9,2517 VL,Den Haag,,,,https://russian-diocese.nl/parochies/lijst-van-parochies/
+mp,Parish of St Cornelius the Centurion,parish,,Matthias Withoosstraat 34,3812 ST,Amersfoort,,,,https://russian-diocese.nl/parochies/lijst-van-parochies/
+mp,Skete of the Holy Cross,monastery,,Matthias Withoosstraat 34,3812 ST,Amersfoort,,,,https://orthodoxconnect.be/kerken
+mp,Parish of the Transfiguration,parish,,Ganzevoortsingel 2,9711 AL,Groningen,,,,https://russian-diocese.nl/parochies/lijst-van-parochies/
+mp,Parish of St Tikhon of Moscow,parish,Byzantine Chapel,Dobbelmannweg 3,6531 KT,Nijmegen,"Byzantine Chapel, shared with the Greek parish of St Theophano",51.83032,5.84744,https://russian-diocese.nl/parochies/lijst-van-parochies/
+mp,Parish of the Archangel Michael,parish,,Theodorahof 20,8011 AA,Zwolle,,,,https://russian-diocese.nl/parochies/lijst-van-parochies/
+mp,Parish of St John the Baptist,parish,,de Hooidollen 17,8918 HV,Leeuwarden,,,,https://russian-diocese.nl/parochies/lijst-van-parochies/
+mp,Monastery of St Nicholas of Myra,monastery,,Buorren 18,8584 VC,Hemelum,,,,https://russian-diocese.nl/parochies/lijst-van-parochies/
+aer,Parish of the Holy Apostles Peter and Paul,parish,,Korte Assenstraat 13,7411 JP,Deventer,,,,https://orthodoxekerk.net/parochies/aartsbisdom-russische-traditie/
+aer,Parish of St John Chrysostom and St Servatius,parish,,Sint Maartenslaan 37,6221 AW,Maastricht,,,,https://orthodoxekerk.net/parochies/aartsbisdom-russische-traditie/
+rocor,Parish of St Mary of Egypt,parish,,Oosteinderweg 394,1432 BG,Aalsmeer,Meets in the Old Catholic church,,,https://orthodoxekerk.net/parochies/russ-orth-kerk-in-het-buitenland/
+rocor,Mission of the Apostle Thomas,parish,,Einsteinstraat 60,6227 BZ,Maastricht,,,,https://orthodoxekerk.net/parochies/russ-orth-kerk-in-het-buitenland/
+rocor,Parish of the Protection of the Mother of God,parish,,Amsterdamseweg 96,6814 GG,Arnhem,,,,https://orthodoxekerk.net/parochies/russ-orth-kerk-in-het-buitenland/
+srb,Parish of the Holy Trinity,parish,,Lede 121,3075 HH,Rotterdam,,,,https://orthodoxekerk.net/parochies/servisch-orthodoxe-kerk/
+srb,Parish of St Nicholas of Myra,parish,,Stationsstraat 13,1506 DA,Zaandam,Building shared with the Antiochian parish of St Barbara,52.44157,4.82204,https://orthodoxekerk.net/parochies/servisch-orthodoxe-kerk/
+srb,Parish of St Sava,parish,,van der Mondeweg 24a,6685 BP,Haalderen,Serves Nijmegen,,,https://orthodoxekerk.net/parochies/servisch-orthodoxe-kerk/
+srb,Parish of St Simeon the Myrrh-streaming,parish,,Woudenbergseweg 38,3701 BC,Zeist,,,,https://orthodoxekerk.net/parochies/servisch-orthodoxe-kerk/
+srb,Parish of the Nativity of the Mother of God,parish,,Middenweg OZ 5,7881 XG,Emmer-Compascuum,Serves Emmen,,,https://orthodoxekerk.net/parochies/servisch-orthodoxe-kerk/
+srb,Parish of St Demetrius,parish,,Hornestraat 1,5707 TM,Helmond,Serves Eindhoven,,,https://orthodoxekerk.net/parochies/servisch-orthodoxe-kerk/
+srb,Parish of St Nektarios of Aegina,parish,,Steendorpstraat 4,4826 EP,Breda,,,,https://orthodoxekerk.net/parochies/servisch-orthodoxe-kerk/
+srb,Parish of the Protection of the Mother of God,parish,,Twekkelerweg 110,7547 RN,Enschede,,,,https://orthodoxekerk.net/parochies/servisch-orthodoxe-kerk/
+srb,Parish of St John the Theologian,parish,,Weverstraat 9,4389 TR,Ritthem,Serves Vlissingen,,,https://orthodoxekerk.net/parochies/servisch-orthodoxe-kerk/
+rou,Parish of St Gregory the Theologian,parish,,Vlaardingerdijk 48,3117 EW,Schiedam,,,,https://orthodoxekerk.net/parochies/patriarchaat-van-roemenie/
+rou,Parish of St John Chrysostom,parish,,Valkenburgerplein 20,2103 AT,Heemstede,Serves Amsterdam,,,https://orthodoxconnect.be/kerken
+rou,Parish of St Basil the Great and St Ludger,parish,,Schoolstraat 1,5366 AT,Megen,,,,https://orthodoxekerk.net/parochies/patriarchaat-van-roemenie/
+rou,Parish of St John the Apostle and Evangelist,parish,,Middelberterweg 13,9723 ET,Groningen,,,,https://orthodoxekerk.net/parochies/patriarchaat-van-roemenie/
+rou,Parish of St Parascheva of Iași,parish,,Sint Willibrordstraat 1,5056 HS,Berkel-Enschot,Serves Tilburg and Eindhoven,,,https://orthodoxekerk.net/parochies/patriarchaat-van-roemenie/
+rou,Parish of St Anastasia,parish,,Kerkring 1,4444 AB,'s-Heer Abtskerke,,,,https://orthodoxekerk.net/parochies/patriarchaat-van-roemenie/
+rou,Parish of Maastricht,parish,,Kerkstraat 8,6223 BK,Borgharen,,50.87701,5.68858,https://orthodoxconnect.be/kerken
+rou,Parish of St Martin of Tours and St Ephraim the New,parish,,Raadhuisstraat 3,4715 CB,Rucphen,,,,https://orthodoxconnect.be/kerken
+bul,Parish of St Paisius of Hilendar and the Archangels,parish,,Bakkersstraat 57a,2513 TJ,Den Haag,Building shared with the Georgian parish,52.07818,4.30099,https://orthodoxekerk.net/parochies/patriarchaat-van-bulgarije/
+geo,Parish of St John the Baptist,parish,,Bakkersstraat 57a,2513 TJ,Den Haag,Building shared with the Bulgarian parish,52.07818,4.30099,https://orthodoxconnect.be/kerken
+geo,Parish of the Exaltation of the Cross,parish,,Louis Bouwmeesterstraat 74,1065 KX,Amsterdam,,,,https://orthodoxekerk.net/parochies/patriarchaat-van-georgie/
+ant,Parish of the Mother of God,parish,,Jacob Catslaan 28,3818 WK,Amersfoort,,,,https://orthodoxekerk.net/parochies/patriarchaat-van-antiochie/
+ant,Parish of St Anthony the Great,parish,,Vlierstraat 93,7544 GG,Enschede,,,,https://orthodoxconnect.be/kerken
+ant,Parish of St Procopius,parish,,Herenstraat 164,2291 BL,Wateringen,,,,https://orthodoxconnect.be/kerken
+ant,Parish of St Barbara,parish,,Stationsstraat 13,1506 DA,Zaandam,Building shared with the Serbian parish of St Nicholas,52.44157,4.82204,https://orthodoxconnect.be/kerken
+ant,Parish of the All-Holy Mother of God,parish,,Kerklaan 31,3731 EE,De Bilt,,,,https://orthodoxconnect.be/kerken
+copt,Church of the Holy Virgin Mary (diocesan seat),parish,,Mosstraat 2,1032 JW,Amsterdam,,,,https://www.kerkopdekaart.nl/Kerk/id=DF502B34-8724-4257-AD87-FC544CA81B63
+copt,Church of St Athanasius the Apostolic,parish,,,,Assen,,,,https://www.koptischekerk.nl/kerken/
+copt,"Church of the Holy Virgin Mary, St Peter and St Paul",parish,,,,Beverwijk,,,,https://www.koptischekerk.nl/kerken/
+copt,Church of the Holy Virgin Mary and St Verena,parish,,Ceintuurbaan 43,1402 HB,Bussum,,,,https://www.kerkopdekaart.nl/Kerk/id=C5ABBD36-758D-48A8-9A78-A83B42006B5D
+copt,Church of St Mark,parish,,,,Den Haag,,,,https://www.koptischekerk.nl/kerken/
+copt,Church of the Archangel Michael and St Anthony,parish,,,,Eindhoven,,,,https://www.koptischekerk.nl/kerken/
+copt,Church of St Mary and St Arsenius,parish,,,,Kapelle,,,,https://www.koptischekerk.nl/kerken/
+copt,Church of the Holy Virgin Mary and Pope Kyrillos VI,parish,,,,Leidschendam,,,,https://www.koptischekerk.nl/kerken/
+copt,Church of St Paul of Thebes,parish,,,,Leeuwarden,,,,https://www.koptischekerk.nl/kerken/
+copt,Church of St George and St Demiana,parish,,Adriaan van Bergenstraat 61,3554 VC,Utrecht,,,,https://www.kerkopdekaart.nl/Kerk/id=79D2378F-7D4F-469B-BE16-4F4E5B84C341
+copt,Church of St John the Baptist,parish,,Wesselerbrinklaan 110,7544 JZ,Enschede,Monthly services in the Syriac church of St Kuryakos,,,https://www.kerkopdekaart.nl/Kerk/id=A3884457-CBE0-4D09-8FC6-5C7C7DD3E278
+copt,Coptic Orthodox Monastery,monastery,,,,Lievelde,,,,https://www.koptischekerk.nl/kerken/
+syr,Monastery of Mor Ephrem (archdiocesan seat),monastery,,Glanerbrugstraat 33A,7585 PK,Glane,,,,https://syriacorthodoxresources.org/ChMon/GlaneDEphrem/index.html
+syr,Church of the Apostle John,parish,,Helmersstraat 1,7551 BR,Hengelo,First Syriac Orthodox parish in Europe (1977),52.26464,6.78749,https://www.kerkopdekaart.nl/Kerk/id=F5947C1B-ADF8-4D22-A07F-57E1EB903119
+syr,Church of the Mother of God Mary,parish,,Sportlaan Driene 6,7552 HA,Hengelo,,,,https://www.kerkopdekaart.nl/Kerk/id=310268D3-2A72-40F4-99DC-D64749F41385
+syr,Church of Mor Augin,parish,,Castorweg 2,7556 MD,Hengelo,,,,"https://reliwiki.nl/index.php/Hengelo,_Castorweg_2_-_Paus_Joannes"
+syr,Church of St Osyo and St Aho,parish,,,,Hengelo,,,,https://nl.wikipedia.org/wiki/Syrisch-Orthodox_Aartsbisdom_van_Nederland
+syr,Church of Mor Jacob of Sarug,parish,,M.H. Tromplaan 50,7513 AB,Enschede,,,,https://deenschedegids.nl/syrisch-orthodoxe-kerk-mor-yakub-van-sarugh/
+syr,Church of St Kuryakos,parish,,Wesselerbrinklaan 110,7544 JZ,Enschede,,,,https://morkuryakos.nl/
+syr,Church of St Peter and St Paul,parish,,Hogelandsingel 39,7512 GB,Enschede,,,,https://www.kerkopdekaart.nl/Kerk/id=D78CFC9E-3C10-4DA3-A34E-CDBC12E1F2F4
+syr,Church of the Mother of God,parish,,Keizersgracht 220,1016 DZ,Amsterdam,National monument,,,https://www.kerkopdekaart.nl/Kerk/id=BD0067AD-2B68-40F1-9816-FA63A6FA3D47
+syr,Church of Mor Sharbel,parish,,Burgemeester Eliasstraat 72,1063 EX,Amsterdam,,,,https://www.kerkopdekaart.nl/Kerk/id=0217F782-1909-4FD9-8CFE-89D65CF89630
+syr,Church of Mor Ignatius Nurono,parish,,Roelf Bosmastraat 35,7462 MZ,Rijssen,,,,https://www.kerkopdekaart.nl/Kerk/id=6B3829AC-F395-4DB1-AD28-A09FA1296F9C
+syr,Church of Mor Shemun d'Zeyte,parish,,Thijlaan 20,7576 ZB,Oldenzaal,,,,https://www.kerkopdekaart.nl/Kerk/id=F2537869-3D8C-4761-8B51-5FD868422184
+syr,Church of Mor Gabriel,parish,,Adelaarstraat 15B,1171 TM,Badhoevedorp,,,,https://www.mapquest.com/tm/stichting-mor-gabriel-kerk-523992333
+syr,Church of Mor Matta,parish,,,,Duivendrecht,Sources give different addresses for this parish,,,https://nl.wikipedia.org/wiki/Syrisch-Orthodox_Aartsbisdom_van_Nederland
+arm,Church of St Gregory the Illuminator,parish,,Vriezenveenseweg 174,7602 PV,Almelo,,,,https://www.armeensekerk.nl/
+arm,Church of the Holy Spirit,parish,,Krom Boomssloot 22,1011 GW,Amsterdam,Built 1713; national monument,52.37153,4.90208,https://nl.wikipedia.org/wiki/Armeens-Apostolische_Kerk_(Amsterdam)
+arm,Church of St Karapet,parish,,Potterieplein 50,6216 VB,Maastricht,,,,https://armenpress.am/en/article/864604
+arm,Armenian community,community,,Rosendaalseweg 505,6824 KL,Arnhem,Monthly services in a host church,51.99751,5.93599,https://www.kerkopdekaart.nl/Kerk/id=2E220615-A659-4126-9EB3-0D41BC0FB6FB
+arm,Armenian community,community,,,,Assen,"Regular services, no church building of its own",,,https://www.armenian-church.eu/en/regioncategories/nitherlands-en/
+arm,Armenian community,community,,,,Dordrecht,"Regular services, no church building of its own",,,https://www.armenian-church.eu/en/regioncategories/nitherlands-en/
+arm,Armenian community,community,,,,Eindhoven,"Regular services, no church building of its own",,,https://www.armenian-church.eu/en/regioncategories/nitherlands-en/
+arm,Armenian community,community,,,,'s-Hertogenbosch,"Regular services, no church building of its own",,,https://www.armenian-church.eu/en/regioncategories/nitherlands-en/
+arm,Armenian community,community,,,,Roosendaal,"Regular services, no church building of its own",,,https://www.armenian-church.eu/en/regioncategories/nitherlands-en/
+arm,Armenian community,community,,,,Nieuwegein,"Regular services, no church building of its own",,,https://www.armenian-church.eu/en/regioncategories/nitherlands-en/
+eth,Hamere-Noh Kidist Mariam Church,parish,,Ringweg-Kruiskamp 74,3814 TE,Amersfoort,,52.16343,5.4026,https://www.kerkopdekaart.nl/Kerk/id=A5CAA622-5233-414A-9F4C-6FE817FB1BF4
+eth,Debre Mewi St Gabriel Church,parish,,Overhandstraat 71,3195 SE,Pernis,,,,https://www.tewahedo.nl/contact
+eth,Debre Bisrat St Gabriel Church,parish,,Westelijk Halfrond 1,1183 HN,Amstelveen,,,,https://www.tewahedo.nl/contact
+eth,Tsereha Aryam Holy Trinity Church,parish,,Dorpstraat 18,5504 HH,Veldhoven,Serves Eindhoven,,,https://www.kerkopdekaart.nl/Kerk/id=8DE24A33-7600-4AFB-BE92-AEBA3621B5B6
+eri,Debre Selam Medhanie Alem Church,parish,,Amstelveenseweg 965,1081 JG,Amsterdam,Meets in the St Augustine church,,,https://www.debreselammedhanealemkerkamsterdam.nl/
+eri,Debre Genet Kidane Mehret Church,parish,,Larikslaan 182,3053 LG,Rotterdam,Former St Paul's church,,,https://www.gebiedsgids.nl/node/98585
+eri,Kidane Mehret Church,parish,,Adrien Mildersstraat 47A-01,3022 NC,Rotterdam,Listed separately from the Larikslaan church,,,https://www.kerkopdekaart.nl/Kerk/id=14BBD515-79A4-4313-ABE2-5720092A887E
+eri,Debre Hayl Kidus Michael Church,parish,,Dorpsstraat 107,2445 AL,Aarlanderveen,Serves Leiden,,,https://www.debrehaylqdusmichaelleiden.nl/
+eri,Debre Menkrat St Abune Gebre Menfes Kidus Church,parish,,Barkstraat 5,9745 BT,Groningen,In Hoogkerk; the community bought this church building,,,https://www.gebremenfeskdus.nl/
+eri,Abune Tekle Haymanot Church,parish,,Coenraad Abelsstraat 31A,6001 VJ,Weert,"Fatima Huis, the former Fatima church",,,https://www.weertdegekste.nl/2024/07/maak-kennis-met-de-eritrees-orthodoxe-tewahedo-kerk/
+eri,Abune Aregawi Church,parish,,,,Apeldoorn,,,,https://eritresekerk.nl/
+eri,St Gabriel Church,parish,,Bethaniënstraat 1,6826 TA,Arnhem,Registered address of the parish,,,https://www.oozo.nl/bedrijven/arnhem/presikhaaf-west/presikhaaf-iii/2541213/eritrese-orthodoxe-tewahdo-kerk-saint-gabril
+eri,"Eritrean Orthodox church, Delft",parish,,Obrechtstraat 50,2625 XN,Delft,Serves Den Haag,,,https://www.kerkopdekaart.nl/Kerk/id=B834E460-E181-458A-86A8-8B06B73E4D75
+eri,Debre Tsion Kidist Dingil Mariam Church,parish,,Amsterdamstraat 59,2032 PN,Haarlem,,,,https://www.kerkopdekaart.nl/Kerk/id=5C4681A9-570D-4C95-BBC8-F79AE517780B
+eri,"Eritrean Orthodox church, Zwolle",parish,,Ministerlaan 203,8014 XE,Zwolle,Monthly services,,,https://www.kerkopdekaart.nl/Kerk/id=31D3ADA1-0823-4122-AACC-738E0F93DE42
+eri,"Eritrean Orthodox community, Maastricht",parish,,,,Maastricht,Received the keys of the Koepelkerk (Sacred Heart church) in 2021,,,https://1zuid.nl/nieuws/artikel/eritrese-geloofsgemeenschap-in-koepelkerk
+eri,"Eritrean Orthodox community, Utrecht",parish,,,,Utrecht,Holds services in the Majellakerk,,,https://jons.info/Tewahedo-Kerk
+eri,"Eritrean Orthodox community, Breda",community,,,,Breda,No building of its own; hosted by various Breda churches,,,https://bisdombreda.nl/algemeen/een-inspirerende-ervaring-met-de-eritrese-gemeenschap-in-het-bisdom-breda/
